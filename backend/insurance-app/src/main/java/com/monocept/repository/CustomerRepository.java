@@ -76,7 +76,6 @@ public class CustomerRepository {
 		Feedback feedback = new Feedback(sendFeedback.getTitle(), sendFeedback.getMessage(),
 				new java.sql.Date(new java.util.Date().getTime()));
 		Customer customer = getSingleCustomer(customerId);
-
 		feedback.setCustomer(customer);
 		customer.customerAddFeedBacks(feedback);
 		em.merge(customer);

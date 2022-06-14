@@ -1,0 +1,53 @@
+<nav>
+    <label class="logo">{{title}}</label>
+    <ul>
+       <li><a class="active" href="#">Home</a></li>
+       <li>
+        <a href="#">About Us</a>
+       </li>
+       <li>
+        <a href="#">Services</a>
+       </li>
+       <li>
+        <a routerLink="customer-login">Login</a>
+       </li>
+       <li>
+        <a routerLink="customer-registration">Registration</a>
+       </li>
+       <li>
+          <a>Insurance Plans
+          <i class="fas fa-caret-down"></i>
+          </a>
+          <ul>
+             <li><a href="#">Protection Plans</a></li>
+             <li><a routerLink="/child-plan">Child Plans</a></li>
+             <li><a href="#">Saving Plans</a></li>
+             <li><a href="#">Growth Plans</a></li>
+             <li><a href="#">Group Plans</a></li>
+          </ul>
+       </li>
+       <li><a href="#">Agent Login</a></li>
+       <li><a href="#">Contact</a></li>
+    </ul>
+ </nav>
+ <a href="https://ibb.co/wMYSBCy"><img src="https://i.ibb.co/PwtcF4x/family-and-ghost-dad.jpg" alt="family-and-ghost-dad" style="height:759px"></a>
+<footer class="bg-dark text-center text-white">
+    <!-- Grid container -->
+    <div class="container p-4 pb-0">
+        <!-- Section: Social media -->
+           
+        <!-- Section: Social media -->
+    </div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(19, 18, 18, 0.2);">
+        © 2022 Copyright e-Insurance
+        <br>
+        <a routerLink="employee-login" class="btn" style="color: white;">Employee Login</a>
+        <br>
+        <a routerLink="admin-login" class="btn" style="color: white;">Admin Login</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+<router-outlet></router-outlet>

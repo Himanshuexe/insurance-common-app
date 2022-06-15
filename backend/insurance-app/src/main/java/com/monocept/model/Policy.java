@@ -21,7 +21,7 @@ public class Policy extends com.monocept.model.Entity {
 	
 	@OneToOne
 	@JoinColumn
-	private InsurancePlan insuransePlan;
+	private InsurancePlan insurancePlan;
 	
 	@ManyToOne
 	private Agent agent;
@@ -93,14 +93,14 @@ public class Policy extends com.monocept.model.Entity {
 		this.sumAssured = sumAssured;
 	}
 
-	public InsurancePlan getInsuransePlan() {
-		return insuransePlan;
+	public InsurancePlan getInsurancePlan() {
+		return insurancePlan;
 	}
 
-	public void setInsuransePlan(InsurancePlan insuransePlan) {
-		this.insuransePlan = insuransePlan;
+	public void setInsurancePlan(InsurancePlan insurancePlan) {
+		this.insurancePlan = insurancePlan;
 	}
-
+	
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -108,5 +108,22 @@ public class Policy extends com.monocept.model.Entity {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
+	
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
+	
+	public Agent getAgent() {
+		return agent;
+	}
+
+	@Override
+	public String toString() {
+		return "Policy [createdDate=" + createdDate + ", maturityDate=" + maturityDate + ", premiumType=" + premiumType
+				+ ", premiumAmount=" + premiumAmount + ", profitRatio=" + profitRatio + ", sumAssured=" + sumAssured
+				+ ", insuransePlan=" + insurancePlan + ", agent=" + agent + ", customer=" + customer + "]";
+	}
+	
+	
 
 }

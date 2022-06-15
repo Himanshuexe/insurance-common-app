@@ -21,13 +21,13 @@ public class PolicyService {
 	
 	public List<PolicyDto> getPolicies(){
 		return repo.getPolicies().stream()
-				.map(p-> new PolicyDto(p.getId(), p.getCustomer().getName(), p.getInsuransePlan().getInsuranceType().getName(), p.getInsuransePlan().getName(), p.getCreatedDate(), p.getMaturityDate(), p.getPremiumType(), p.getPremiumAmount(), p.getProfitRatio(), p.getSumAssured(), p.getStatus(), p.isDeleted()))
+				.map(p-> new PolicyDto(p.getId(), p.getCustomer().getName(), p.getInsurancePlan().getInsuranceType().getName(), p.getInsurancePlan().getName(), p.getCreatedDate(), p.getMaturityDate(), p.getPremiumType(), p.getPremiumAmount(), p.getProfitRatio(), p.getSumAssured(), p.getStatus(), p.isDeleted()))
 				.collect(Collectors.toList());
 	}
 	
 	public PolicyDto getPolicyById(int id) {
 		Policy p = repo.getPolicyById(id);
-		return new PolicyDto(p.getId(), p.getCustomer().getName(), p.getInsuransePlan().getInsuranceType().getName(), p.getInsuransePlan().getName(), p.getCreatedDate(), p.getMaturityDate(), p.getPremiumType(), p.getPremiumAmount(), p.getProfitRatio(), p.getSumAssured(), p.getStatus(), p.isDeleted());
+		return new PolicyDto(p.getId(), p.getCustomer().getName(), p.getInsurancePlan().getInsuranceType().getName(), p.getInsurancePlan().getName(), p.getCreatedDate(), p.getMaturityDate(), p.getPremiumType(), p.getPremiumAmount(), p.getProfitRatio(), p.getSumAssured(), p.getStatus(), p.isDeleted());
 	}
 	
 	public String activatePolicy(int id) {

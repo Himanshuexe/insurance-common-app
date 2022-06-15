@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.monocept.model.InsurancePlan;
 import com.monocept.model.InsuranceType;
+import com.monocept.model.dto.InsurancePlanDto;
 import com.monocept.service.InsuranceService;
 
 @RestController
@@ -61,12 +62,12 @@ public class InsuranceController {
 	}
 	//////////////////
 	@GetMapping("/insurancePlan")
-	public ResponseEntity<List<InsurancePlan>> getInsurancePlans(){
+	public ResponseEntity<List<InsurancePlanDto>> getInsurancePlans(){
 		return ResponseEntity.ok(insuranceService.getInsurancePlans());
 	}
 	
 	@GetMapping("/insurancePlan/{id}")
-	public ResponseEntity<InsurancePlan> getInsurancePlanById(@PathVariable("id") int id) {
+	public ResponseEntity<InsurancePlanDto> getInsurancePlanById(@PathVariable("id") int id) {
 		return ResponseEntity.ok(insuranceService.getInsurancePlanById(id));
 	}
 	

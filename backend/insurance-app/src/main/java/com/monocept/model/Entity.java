@@ -13,7 +13,16 @@ public class Entity {
 	private int id;
 	private boolean status = true;
 	private boolean isDeleted = false;
+	private String type="normal";
 	
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public Entity() {
 		
 	}

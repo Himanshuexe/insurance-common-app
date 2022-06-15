@@ -7,7 +7,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.OneToMany;
 
 @javax.persistence.Entity
-public class Agent extends Entity {
+public class Agent extends Entity implements UserDetail{
 	
 	private String name;
 	private String password;

@@ -19,4 +19,5 @@ public class MasterTransactionController {
 	public ResponseEntity<String> addTransaction(MasterTransaction transaction) {
 		return ResponseEntity.ok(masterTransactionService.addTransaction(transaction));
 	}
-	}
+
+}

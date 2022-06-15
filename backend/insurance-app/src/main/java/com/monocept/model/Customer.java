@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Customer extends com.monocept.model.Entity{
+public class Customer extends com.monocept.model.Entity implements UserDetail{
 
 	private String password;
 	private String name;
@@ -170,7 +170,16 @@ public class Customer extends com.monocept.model.Entity{
 	public void setTransactions(List<CustomerTransaction> transactions) {
 		this.transactions = transactions;
 	}
-   public void customerAddFeedBacks(Feedback feedback) {
+	
+	public void addPolicy(Policy policy) {
+		policies.add(policy);
+	}
+	
+	public void addTransaction(CustomerTransaction transaction) {
+		transactions.add(transaction);
+	}
+	
+	public void customerAddFeedBacks(Feedback feedback) {
 	   feedbacks.add(feedback);
    }
 	@Override

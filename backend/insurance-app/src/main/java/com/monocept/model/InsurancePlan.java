@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 
 @Entity
 public class InsurancePlan extends com.monocept.model.Entity {
@@ -14,6 +15,7 @@ public class InsurancePlan extends com.monocept.model.Entity {
 	@ManyToOne
 	@JoinColumn
 	private InsuranceType insuranceType;
+	
 	
 	private String description;
 	private int newRegistrationCommission;
@@ -146,4 +148,5 @@ public class InsurancePlan extends com.monocept.model.Entity {
 	public double getProfitRatio() {
 		return profitRatio;
 	}
+	
 }

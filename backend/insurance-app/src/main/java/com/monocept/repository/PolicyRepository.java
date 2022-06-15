@@ -25,7 +25,7 @@ public class PolicyRepository {
 	}
 	
 	public List<Policy> getPolicies(){
-		return em.createQuery("From Policy").getResultList();
+		return em.createQuery("FROM Policy").getResultList();
 	}
 	
 	public Policy getPolicyById(int id) {

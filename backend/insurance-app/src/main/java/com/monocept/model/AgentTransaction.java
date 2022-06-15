@@ -23,5 +23,13 @@ public class AgentTransaction extends TransactionEntity{
 	public AgentTransaction(Timestamp time, String description, double amount, String type) {
 		super(time, description, amount, type);
 	}
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
 	
 }

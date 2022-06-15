@@ -7,16 +7,19 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.monocept.model.Customer;
+import com.monocept.model.CustomerTransaction;
 import com.monocept.model.Feedback;
+import com.monocept.model.Policy;
 import com.monocept.model.dto.CustomerDto;
+import com.monocept.model.dto.CustomerTransactionDto;
 import com.monocept.model.dto.SendFeedBackDto;
 import com.monocept.service.CustomerService;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
 @RestController
 @RequestMapping(path = "/api/v1/customer")
@@ -34,7 +37,7 @@ public class CustomerController {
 	}
 	
 	@PostMapping(path = "/addCustomer")
-	public ResponseEntity<Customer> addCustomer(@org.springframework.web.bind.annotation.RequestBody Customer customer) {
+	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
 		return ResponseEntity.ok(customerService.addCustomer(customer));
 	}
 	
@@ -61,8 +64,20 @@ public class CustomerController {
 	}
 
 	@PostMapping(path="/{customerId}/addFeedback")
-	public ResponseEntity<SendFeedBackDto> addFeedBack(@PathVariable("customerId") int customerId, @org.springframework.web.bind.annotation.RequestBody SendFeedBackDto feedback){
+	public ResponseEntity<SendFeedBackDto> addFeedBack(@PathVariable("customerId") int customerId, @RequestBody SendFeedBackDto feedback){
 		return ResponseEntity.ok(customerService.addFeedBack(customerId, feedback));
 	}
 	
+	@PostMapping("/{customerId}/addPolicy/{insurancePlanId}/")
+	public ResponseEntity<String> addPolicy(@RequestBody Policy policy, @PathVariable("customerId") int customerId, @PathVariable("insurancePlanId") int insurancePlanId){
+		return ResponseEntity.ok(customerService.addPolicy(customerId, insurancePlanId, policy));
+	}
+	@PostMapping("/{customerId}/addCustomerTransaction")
+	public ResponseEntity<Customer> addCustomerTransaction(@PathVariable("customerId") int customerId,    @RequestBody CustomerTransaction customerTransaction){
+		return ResponseEntity.ok(customerService.addCustomerTransaction(customerId, customerTransaction));
+	}
+	@GetMapping(path = "/{customerId}/transactions")
+	public ResponseEntity<List<CustomerTransactionDto>> getSingleCustomerTransaction(@PathVariable("customerId") int customerId){
+		return ResponseEntity.ok(customerService.getSingleCustomerTransaction(customerId));
+	}
 }

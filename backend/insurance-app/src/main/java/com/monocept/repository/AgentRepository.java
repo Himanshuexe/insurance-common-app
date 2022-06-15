@@ -1,5 +1,7 @@
 package com.monocept.repository;
 
+import java.sql.Timestamp;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -9,6 +11,9 @@ import javax.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
 import com.monocept.model.Agent;
+import com.monocept.model.AgentTransaction;
+import com.monocept.model.Customer;
+import com.monocept.model.CustomerTransaction;
 
 @Repository
 public class AgentRepository {
@@ -54,4 +59,16 @@ public class AgentRepository {
 		em.merge(agent);
 		return id + " deleted";
 	}
+	@Transactional
+	public Agent agentTransaction(int agentId,AgentTransaction agentTransaction) {
+		Date date = new Date();
+		Timestamp time = new Timestamp(date.getTime());
+		agentTransaction.setTime(time);
+		Agent agent = (Agent) em.createQuery("From Agent where id= " + agentId + " ").getSingleResult();
+		agentTransaction.setAgent(agent);
+		agent.addTransaction(agentTransaction);
+		em.merge(agent);
+		return agent;
+	}
+	
 }

@@ -28,6 +28,8 @@ public class PolicyController {
 	
 	@PostMapping("/addPolicy")
 	public ResponseEntity<Boolean> addPolicy(@RequestBody Policy policy){
+		System.out.println("Inside add policy post mapping: ");
+		System.out.println(policy.toString());
 		policyService.addPolicy(policy);
 		return ResponseEntity.ok(true);
 	}

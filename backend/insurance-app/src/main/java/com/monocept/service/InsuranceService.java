@@ -1,12 +1,14 @@
 package com.monocept.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.monocept.model.InsurancePlan;
 import com.monocept.model.InsuranceType;
+import com.monocept.model.dto.InsurancePlanDto;
 import com.monocept.repository.InsuranceRepository;
 
 @Service
@@ -46,12 +48,13 @@ public class InsuranceService {
 		repo.addInsurancePlan(plan, insuranceTypeId);
 	}
 	
-	public List<InsurancePlan> getInsurancePlans(){
-		return repo.getInsurancePlans();
+	public List<InsurancePlanDto> getInsurancePlans(){
+		return repo.getInsurancePlans().stream().map(p-> new InsurancePlanDto(p.getId(),p.getName() , p.getInsuranceType().getName(), p.getDescription(), p.getNewRegistrationCommission(), p.getInstallmentPaymentCommission(), p.getPolicyTermMin(), p.getPolicyTermMax(), p.getMinAge(), p.getMaxAge(), p.getSumAssuredMin(), p.getSumAssuredMax(), p.getProfitRatio(), p.getStatus(), p.isDeleted())).collect(Collectors.toList());
 	}
 	
-	public InsurancePlan getInsurancePlanById(int id) {
-		return repo.getInsurancePlanById(id);
+	public InsurancePlanDto getInsurancePlanById(int id) {
+		InsurancePlan p = repo.getInsurancePlanById(id);   
+		return new InsurancePlanDto(p.getId(),p.getName() , p.getInsuranceType().getName(), p.getDescription(), p.getNewRegistrationCommission(), p.getInstallmentPaymentCommission(), p.getPolicyTermMin(), p.getPolicyTermMax(), p.getMinAge(), p.getMaxAge(), p.getSumAssuredMin(), p.getSumAssuredMax(), p.getProfitRatio(), p.getStatus(), p.isDeleted());
 	}
 	
 	public String activateInsurancePlan(int id) {

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.monocept.model.Agent;
+import com.monocept.model.AgentTransaction;
 import com.monocept.repository.AgentRepository;
 
 @Service
@@ -39,5 +40,8 @@ public class AgentService {
 
 	public String deleteAgent(int id) {
 		return repo.deleteAgent(id);
+	}
+	public Agent addAgentTransaction(int agentId, AgentTransaction agentTransaction) {
+		return repo.agentTransaction(agentId, agentTransaction);
 	}
 }

@@ -79,6 +79,7 @@ public class CustomerController {
 	public ResponseEntity<Customer> addCustomerTransaction(@PathVariable("customerId") int customerId,    @RequestBody CustomerTransaction customerTransaction){
 		return ResponseEntity.ok(customerService.addCustomerTransaction(customerId, customerTransaction));
 	}
+	
 	@GetMapping(path = "/{customerId}/transactions")
 	public ResponseEntity<List<CustomerTransactionDto>> getSingleCustomerTransaction(@PathVariable("customerId") int customerId){
 		return ResponseEntity.ok(customerService.getSingleCustomerTransaction(customerId));

@@ -50,12 +50,12 @@ public class LoginController {
 	}
 	
 	@PostMapping(path = "/userlogin")
-	public ResponseEntity<String> login(@org.springframework.web.bind.annotation.RequestBody LoginDto loginDto){
+	public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
 		System.out.println(loginDto.getId()+" id=================user");
 		System.out.println(loginDto.getPassword()+" id=================user");
 		return ResponseEntity.ok(loginService.login(loginDto));
 	}
-	@PostMapping(path = "/customerlogin")
+	@PostMapping(path = "/tokenlogin")
 	public ResponseEntity<?> generateToken(@org.springframework.web.bind.annotation.RequestBody LoginDto loginDto) throws Exception{
 		System.out.println(loginDto.getId()+" id=================");
 		System.out.println(loginDto.getPassword()+" id=================");

@@ -1,0 +1,26 @@
+<div>
+  <div class="container text-center" style="margin-left: 100px;">
+      <img class="img-fluid" src="assets/login.png" style="width: 115px;" />
+  </div>
+  <h2 class="text-center">{{title}}</h2>
+</div>
+<div class="container" style="width: 50%;">
+  <form #userForm="ngForm" (ngSubmit)="getUserFormData(userForm.value)">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td scope="col"><strong>User Id</strong></td>
+          <td scope="col"><input type="text" class="form-control" id="userId" placeholder="User Id" name="id" ngModel />
+           </td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Password:</strong></td>
+          <td><input type="password" class="form-control" id="pass" placeholder="Password" name="password" ngModel /></td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center"><button id="submit" class="btn btn-danger">Login</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

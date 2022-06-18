@@ -1,0 +1,32 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Agent Name</th>
+                        <th>Agent Code</th>
+                        <th>Address</th>
+                        <th>Email-id</th>
+                        <th>Qualification</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let agent of agents">
+                    <tr>
+                        <td>{{agent.name}}</td>
+                        <td>{{agent.id}}</td>
+                        <td>{{agent.address}}</td>
+                        <td>{{agent.email}}</td>
+                        <td>{{agent.qualification}}</td>
+                        <td>{{agent.status}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+

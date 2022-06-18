@@ -1,0 +1,41 @@
+<br><br><br>
+
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Insurance Type</th>
+                        <th>Insurance Scheme</th>
+                        <th>Policy Term Min</th>
+                        <th>Policy Term Max</th>
+                        <th>Minimum Age</th>
+                        <th>Maximum Age</th>
+                        <th>Sum Assured Min</th>
+                        <th>Sum Assured Max</th>
+                        <th>Profit Ratio</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="insuranceType"></td>
+                        <td [(ngModel)]="insuranceScheme"></td>
+                        <td [(ngModel)]="policyMin"></td>
+                        <td [(ngModel)]="policyMax"></td>
+                        <td [(ngModel)]="minAge"></td>
+                        <td [(ngModel)]="maxAge"></td>
+                        <td [(ngModel)]="sumMin"></td>
+                        <td [(ngModel)]="sumMax"></td>
+                        <td [(ngModel)]="profitRatio"></td>
+                        <td [(ngModel)]="status"></td>
+                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

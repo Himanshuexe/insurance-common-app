@@ -1,0 +1,54 @@
+<div>
+  <h2 class="text-center">{{title}}</h2>
+  <p class="text-center">Kindly enter the credentials</p>
+</div>
+<div class="container">
+  <form [formGroup]="exform">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td scope="col"><strong>Agent Name:</strong></td>
+          <td scope="col"><input formControlName="name" type="text" name="name" class="form-control"><small
+              *ngIf="exform.get('name').invalid && exform.get('name').touched" class="text-danger">Name is
+              required</small></td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Password:</strong></td>
+          <td><input formControlName="password" type="password" class="form-control" name="password" value="" />
+            <small *ngIf="exform.get('password').invalid && exform.get('password').touched" class="text-danger">Password
+              is
+              required</small>
+          </td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Agent Address:</strong></td>
+          <td><textarea formControlName="address" class="form-control" name="address"></textarea>
+            <small *ngIf="exform.get('address').invalid && exform.get('address').touched" class="text-danger">address is
+              required</small>
+          </td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Email ID:</strong></td>
+          <td><input formControlName="email" type="email" class="form-control" name="email">
+            <small *ngIf="exform.get('email').invalid && exform.get('email').touched" class="text-danger">Email is
+              required</small>
+          </td>
+        </tr>
+        <tr>
+          <td scope="col"><strong>Qualification:</strong></td>
+          <td><select formControlName="qualification" name="qualification" class="form-control">
+              <option value="">Select</option>
+              <option value="Intermediate">Intermediate</option>
+              <option value="Graduate">Graduate</option>
+            </select>
+            <small *ngIf="exform.get('qualification').invalid && exform.get('qualification').touched"
+              class="text-danger">Name is required</small>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><button [disabled]="exform.invalid" (click)="addAgentData()" type="submit" class="btn btn-primary">Submit</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

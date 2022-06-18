@@ -29,9 +29,9 @@ public class AgentController {
 	}
 
 	@PostMapping("/addAgent")
-	public ResponseEntity<Boolean> addAgent(@RequestBody Agent agent) {
+	public ResponseEntity<Agent> addAgent(@RequestBody Agent agent) {
 		agentService.addAgent(agent);
-		return ResponseEntity.ok(true);
+		return ResponseEntity.ok(agent);
 	}
 
 	@GetMapping("/{id}")

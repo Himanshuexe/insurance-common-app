@@ -1,0 +1,112 @@
+<body style="background-color: white;">
+    <div class="container">
+    <div class="text-center">
+        <h1>AR-Child Plan</h1>
+        <img src="assets/child_plane.jpg" class="rounded float-center" alt="..." style="width: 300px;">
+        <p>
+            Planning does not necessarily mean about what you wish your child would grow up to be, or have certain
+            characteristics,
+            but it also essentially means you as a responsible parent having various obligations to fulfill that would
+            help him to grow better in this world.
+            <br>
+            Life insurance plays an important role in an individual's financial planning exercise. Insurance can assist
+            individuals in planning for their own life stages as well as provide for their child's future. It also
+            secures the child’s future in case of any unfortunate event.
+            Various types of child insurance products are available in the market today.
+            <br>
+            Child insurance plans have traditionally played an important role in securing the child's future. With a
+            plethora of children insurance plans available in the market, it becomes difficult for most parents to
+            evaluate them objectively.
+            Individuals need to understand the dynamics for planning their children so that they can best utilize the
+            alternatives available in the market.
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Default form contact -->
+        <h2>Plan Details:</h2>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>Policy term-minimum</td>
+                    <td>2 Years</td>
+                </tr>
+                <tr>
+                    <td>Policy term-maximum</td>
+                    <td>8 Years</td>
+                </tr>
+                <tr>
+                    <td>Minimum Age</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>Maximum Age</td>
+                    <td>20</td>
+                </tr>
+                <tr>
+                    <td>Minimum Investment Amount</td>
+                    <td>110000</td>
+                </tr>
+                <tr>
+                    <td>Maxmimum Investment Amount</td>
+                    <td>150000</td>
+                </tr>
+                <tr>
+                    <td>Profit Ratio</td>
+                    <td>6.00%</td>
+                </tr>
+            </tbody>
+        </table>
+        <form>
+            <h2>Interest Calculator</h2>
+            <table class="table table-border">
+                <tbody>
+                    <tr>
+                        <td scope="col"><strong>No Of Years:</strong></td>
+                        <td scope="col"><input type="number" name="years" class="form-control" [(ngModel)]="noOfYear">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Total Investment Amount:</strong></td>
+                        <td scope="col"><input type="number" name="amount" class="form-control" [(ngModel)]="amount">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Months:</strong></td>
+                        <td scope="col"><select name="months" class="form-control" [(ngModel)]="months">
+                                <option value="">Select</option>
+                                <option value='1 month'>1 Month</option>
+                                <option value='3 month'>3 Month</option>
+                                <option value='6 month'>6 Month</option>
+                                <option value='1 year'>1 Year</option>
+                            </select></td>
+                    </tr>
+                    <button class="btn btn-danger" type="submit" (click)="interestCalculator()">Calculate</button>
+                    <br>
+                    <br>
+                    <tr>
+                        <td scope="col"><strong>Installment Amount:</strong></td>
+                        <td scope="col"><input type="text" name="installment amount" class="form-control"
+                                [(ngModel)]="installAmt" value=installAmt disabled></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Interest Amount:</strong></td>
+                        <td scope="col"><input type="text" name="interest amount" class="form-control"
+                                [(ngModel)]="insterestAmt" value=insterestAmt disabled></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Total Amount:</strong></td>
+                        <td scope="col"><input type="text" name="total amount" class="form-control"
+                                [(ngModel)]="totalAmt" value=totalAmt disabled></td>
+                    </tr>
+                    <tr>
+                        <td *ngIf="buttonSubmit"><a class="btn btn-danger"
+                                routerLink="/insurance-account-details">Submit</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        </div>
+    </div>
+</body>

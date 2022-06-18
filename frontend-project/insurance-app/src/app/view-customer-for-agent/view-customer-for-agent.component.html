@@ -1,0 +1,37 @@
+<br><br><br>
+
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>DOB</th>
+                        <th>Login Id</th>
+                        <th>Address</th>
+                        <th>Mobile No.</th>
+                        <th>Nominee</th>
+                        <th>Nominee Relation</th>
+                        <th>status</th>
+                        <th>Documents</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let customer of customers">
+                    <tr>
+                        <td>{{customer.name}}</td>
+                        <td>{{customer.dob}}</td>
+                        <td>{{customer.id}}</td>
+                        <td>{{customer.address}}</td>
+                        <td>{{customer.number}}</td>
+                        <td>{{customer.nominee}}</td>
+                        <td>{{customer.nomineeRelation}}</td>
+                        <td>{{customer.status}}</td>
+                        <td><a href="viewCustomerDocument">View Documents</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

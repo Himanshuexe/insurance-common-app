@@ -50,7 +50,7 @@ public class LoginController {
 	}
 	
 	@PostMapping(path = "/userlogin")
-	public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
+	public ResponseEntity<String> login(@org.springframework.web.bind.annotation.RequestBody LoginDto loginDto){
 		System.out.println(loginDto.getId()+" id=================user");
 		System.out.println(loginDto.getPassword()+" id=================user");
 		return ResponseEntity.ok(loginService.login(loginDto));
@@ -77,7 +77,7 @@ public class LoginController {
 	}
 	
 	@PostMapping(path = "/addCustomer")
-	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
+	public ResponseEntity<Customer> addCustomer(@org.springframework.web.bind.annotation.RequestBody Customer customer) {
 		return ResponseEntity.ok(customerService.addCustomer(customer));
 	}
 }

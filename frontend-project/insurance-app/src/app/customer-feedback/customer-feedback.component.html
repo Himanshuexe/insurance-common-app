@@ -1,0 +1,27 @@
+<div>
+  <h2 class="text-center">{{title}}</h2>
+  <p class="text-center">Please give Your Feedback...</p>
+</div>
+<div class="container">
+  <form #userForm="ngForm" (ngSubmit)="sendFeedback(userForm.value)">
+    <table class="table table-bordered">
+      <tbody>
+        <tr>
+          <td colspan="2"><strong>Title:</strong>
+            <input type="text" ngModel name="title" class="form-control">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><strong>Message:</strong>
+            <textarea ngModel name="message" class="form-control" style="height: 150px;"></textarea>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" align="center">
+            <button class="btn btn-danger">Post Feedback</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+</div>

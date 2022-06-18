@@ -1,0 +1,36 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Account Number</th>
+                        <th>Insurance Type</th>
+                        <th>Insurance Scheme</th>
+                        <th>Date Create</th>
+                        <th>Maturity Date</th>
+                        <th>Premium Type</th>
+                        <th>Total Premium Amount</th>
+                        <th>Profit Ratio</th>
+                        <th>Sum Assured</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="accountNo"></td>
+                        <td [(ngModel)]="insuranceType"></td>
+                        <td [(ngModel)]="insuranceScheme"></td>
+                        <td [(ngModel)]="dateCreate"></td>
+                        <td [(ngModel)]="maturityDate"></td>
+                        <td [(ngModel)]="premiumType"></td>
+                        <td [(ngModel)]="totalPremiumAmount"></td>
+                        <td [(ngModel)]="profitRatio"></td>
+                        <td [(ngModel)]="sumAssured"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

@@ -1,0 +1,45 @@
+<body>
+<div class="container">
+    <div align="center"><h1>{{title}}</h1></div>
+    <form >
+        <table class="table table-bordered">
+            <tbody >
+                <tr>
+                    <td scope="col"><strong>Name:</strong></td>
+                    <td scope="col"><input type="text" name="custname" value="{{data.name}}" class="form-control"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Date of Birth.:</strong></td>
+                    <td><input type="text" name="dob" class="form-control" value="{{data.dob}}" /></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Address:</strong></td>
+                    <td><textarea class="form-control" name="address" value="{{data.address}}" ></textarea></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Email ID:</strong></td>
+                    <td><input type="text" class="form-control" name="email" value="{{data.email}}"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>State:</strong></td>
+                    <td><input type="text" class="form-control" name="state" value="{{data.state}}"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>City:</strong></td>
+                    <td><input type="text" class="form-control" name="city" value="{{data.city}}"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Mobile No:</strong></td>
+                    <td><input type="text" class="form-control" name="number" value="{{data.number}}"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Nominee:</strong></td>
+                    <td><input type="text" class="form-control" name="nominee" value="{{data.nominee}}"></td>
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Nominee Relation:</strong></td>
+                    <td><input type="text" class="form-control" name="nomineeRelation" value="{{data.nomineeRelation}}"></td>
+            </tbody>
+        </table>
+    </form>
+</div>

@@ -86,6 +86,7 @@ public class CustomerRepository {
 	
 	@Transactional
 	public Customer addCustomer(Customer customer) {
+		customer.setType("customer");
 		em.persist(customer);
 		return customer;
 

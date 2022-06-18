@@ -1,0 +1,20 @@
+<div class="container mt">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="container text-center" style="margin: 10px;">
+                <img class="img-fluid" src="assets/agent.jpg" style="width: 100px;" />
+            </div>
+            <h1 class="text-center">Agent Login</h1>
+
+            <form (ngSubmit)="onSubmit()">
+                <label for="username">Username*</label>
+                <input type="text" name="username" [(ngModel)]="credentials.username" 
+                required class="form-control"><br>
+
+                <label for="password">Password*</label>
+                <input type="password" name="password" [(ngModel)]="credentials.password" required class="form-control">
+                <button type="submit" class="btn btn-primary" style="margin-top: 10px;">Login</button>
+            </form>
+        </div>
+    </div>
+</div>

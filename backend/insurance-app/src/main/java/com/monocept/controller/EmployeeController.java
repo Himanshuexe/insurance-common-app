@@ -28,9 +28,9 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("/addEmployee")
-	public ResponseEntity<Boolean> addEmployee(@RequestBody Employee employee){
+	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
 		employeeService.addEmployee(employee);
-		return ResponseEntity.ok(true);
+		return ResponseEntity.ok(employee);
 	}
 	
 	@GetMapping("/{id}")

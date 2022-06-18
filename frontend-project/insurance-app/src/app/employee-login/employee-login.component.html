@@ -1,0 +1,26 @@
+<div class="container mt">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="container text-center" style="margin: 10px;">
+          <img class="img-fluid" src="assets/employee.jpg" style="width: 100px;" />
+        </div>
+        <h1 class="text-center">Employee Login</h1>
+  
+        <form #userForm="ngForm" (ngSubmit)="getUserFormData(userForm.value)">
+          <div class="container">
+            <div class="form-floating mb-3">
+              <input type="text" class="form-control" id="userId" placeholder="name@example.com" name="id" ngModel />
+              <label for="floatingInput">User Id</label>
+            </div>
+            <div class="form-floating">
+              <input type="password" class="form-control" id="pass" placeholder="Password" name="password" ngModel />
+              <label for="floatingPassword">Password</label>
+            </div>
+            <br />
+            <br />
+            <button id="submit" class="btn btn-primary">login button</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

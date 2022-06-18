@@ -1,0 +1,32 @@
+<div>
+    <h2 class="text-center">{{title}}</h2>
+    <p class="text-center">Kindly enter the credentials</p>
+  </div>
+  <div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td scope="col"><strong>Employee Name:</strong></td>
+            <td scope="col"><input type="text" name="agentname" class="form-control"
+                 [(ngModel)]="emp_name"></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Password:</strong></td>
+            <td><input type="password" class="form-control" name="password" value="" 
+                [(ngModel)]="password" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Confirm Password:</strong></td>
+            <td><input type="password" class="form-control" name="confirmPassword" [(ngModel)]="confirmPassword"
+                 value="" /></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit" class="btn btn-primary">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+
+

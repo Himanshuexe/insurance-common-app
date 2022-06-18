@@ -1,0 +1,268 @@
+<body style="background-image: url('assets/home.jpg');">
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="color: white;">
+        <a class="navbar-brand" href="#"><strong></strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/agent-dashboard">Dashboard</a>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Agent
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/agentRegistration">Add Agent</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewAgents">View Agent</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommission">View
+                                Commisssion</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommWithdrawal">View
+                                Commission
+                                Withdrawal</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Insurance
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCustomer">View Customers</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item"
+                                routerLink="/view-insurance-account-detail">Insurance
+                                Account</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyPay">View Policy
+                                Payment</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyClaim">View Policy
+                                Claim</a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Queries
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewFeedback">View Feedback</a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Insurance
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/addInsuranceType">Add Insurance
+                                Type</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/insuranceType">View Insurance
+                                Type</a>
+                        </li>
+                        <!-- <li ngbDropdownItem><a class="dropdown-item" routerLink="/addInsuranceScheme">Add Insurance
+                                    Scheme</a></li>
+                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewInsuranceScheme">View
+                                    Insurance
+                                    Scheme</a></li> -->
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/addInsurancePlan">Add Insurance
+                                Plan</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewInsurancePlan">View Insurance
+                                Plan</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Settings
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/taxSetting">Tax Settings</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/insuranceSetting">Insurance
+                                Settings</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/addCity">Add City</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCIty">View City</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/addState">Add State</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewState">View State</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Account
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" href="#">Profile</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" href="#">Change Password</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/empRegistration">Add Employee</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/empRecords">View Employee</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav-item">
+                    <a class="btn btn-danger" (click)="logout()" style="">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="text-align: center; ; ">
+        <h1 style="margin-top:20px ; color:black;">Welcome</h1>
+        <h3 style="color: black;">{{username}}</h3>
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/agent.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Agent</h5>
+                <p>No of records - {{agentRecords}}</p>
+                <a routerLink="/viewAgents" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/employee.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Employee</h5>
+                <p>No of records - {{employeeRecords}}</p>
+                <a routerLink="/empRecords" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/customer.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Customer</h5>
+                <p>No of records - {{customerRecords}}</p>
+                <a routerLink="/viewCustomer" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+        <br>
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/customerdoc.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Customer Doc</h5>
+                <p>No of records - {{customerDocRecords}}</p>
+                <a routerLink="#" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/insuranceType.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Insurance Type</h5>
+                <p>No of records - {{insuranceTypeRecords}}</p>
+                <a routerLink="/insuranceType" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/insurancePlan.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Insurance Plan</h5>
+                <p>No of records - {{insurancePlanRecords}}</p>
+                <a routerLink="/viewInsurancePlan" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+        <br>
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/insuranceAccount.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Insurance Account</h5>
+                <p>No of records - {{insuranceAccountRecords}}</p>
+                <a routerLink="/view-insurance-account-detail" class="fa fa-eye"
+                    style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/policyPayment.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Policy Payment</h5>
+                <p>No of records - {{policyPaymentRecords}}</p>
+                <a routerLink="/viewPolicyPay" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/policyClaim.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Policy Claim</h5>
+                <p>No of records - {{policyClaimRecords}}</p>
+                <a routerLink="/viewPolicyClaim" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+        <br>
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/viewCommission.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Commisssion</h5>
+                <p>No of records - {{commissionRecords}}</p>
+                <a routerLink="/viewCommission" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/query.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Query</h5>
+                <p>No of records - {{queryRecords}}</p>
+                <a routerLink="/viewQueries" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/state.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">State</h5>
+                <p>No of records - {{stateRecords}}</p>
+                <a routerLink="/viewState" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+        <br>
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/city.png" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">City</h5>
+                <p>No of records - {{cityRecords}}</p>
+                <a routerLink="/viewCity" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
+            <img class="card-img-top" src="assets/insuranceScheme.jpg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Insurance Scheme</h5>
+                <p>No of records - {{insuranceSchemeRecords}}</p>
+                <a routerLink="/viewInsuranceScheme" class="fa fa-eye"
+                    style="color:red; text-decoration: none;">View</a>
+            </div>
+        </div>
+    </div>
+    <br><br><br><br><br>
+</body>

@@ -25,6 +25,7 @@ public class AgentRepository {
 
 	@Transactional
 	public void addAgent(Agent agent) {
+		agent.setType("agent");
 		em.persist(agent);
 	}
 

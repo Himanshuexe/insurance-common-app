@@ -1,0 +1,27 @@
+<br><br><br>
+
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Insurance Type Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let insuranceType of insuranceTypes">
+                    <tr>
+                        <td>{{insuranceType.name}}</td>
+                        <td>{{insuranceType.status}}</td>
+                        <!-- <td [(ngModel)]="insuranceType"></td>
+                        <td [(ngModel)]="status"></td> -->
+                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

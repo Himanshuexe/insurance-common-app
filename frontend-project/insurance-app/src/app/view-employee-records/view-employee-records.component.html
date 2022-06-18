@@ -1,0 +1,32 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Employee Type</th>
+                        <th>Employee Name</th>
+                        <th>Login Id</th>
+                        <th>Password</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="empType"></td>
+                        <td [(ngModel)]="empName"></td>
+                        <td [(ngModel)]="login_id"></td>
+                        <td [(ngModel)]="password"></td>
+                        <td [(ngModel)]="status"></td>
+                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+
+

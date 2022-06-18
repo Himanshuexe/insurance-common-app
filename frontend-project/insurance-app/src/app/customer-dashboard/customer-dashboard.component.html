@@ -1,0 +1,99 @@
+<body style="background-color: white;">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><strong>{{title}}</strong></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Account<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/view-insurance-account-detail">Insurance Account</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Customer Profile
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" routerLink="/customer-profile">Profile</a>
+            <a class="dropdown-item" href="#">Documents</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+            Insurance Plans
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a ngDropDownItem *ngFor="let insuranceType of insuranceTypes" class="dropdown-item"
+              href="/{{insuranceType.name}}">{{insuranceType.name}}</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " routerLink="/customerQueries">Queries</a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-danger" (click)="customerLogout()" style="">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div style="text-align: center;">
+    <h1 style="margin-top:20px ; color:black;">Welcome</h1>
+    <h3 style="color: black;">{{username}}</h3>
+
+    <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+        <img class="card-img-top" src="assets/profile.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Profile</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="card" style="width: 18em; margin: 10px; display: inline-block;">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+        <img class="card-img-top" src="assets/document.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Documents</h5>
+        </div>
+      </a>
+    </div>
+
+
+    <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+        <img class="card-img-top" src="assets/insuranceAccount.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Insurance Account</h5>
+        </div>
+      </a>
+    </div>
+    <br>
+    <div class="card" style="width: 20rem; margin: 20px; display: inline-block;">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
+        <img class="card-img-top" src="assets/queryfeedback.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Queries & Feedback</h5>
+        </div>
+      </a>
+    </div>
+
+    <div class="card" style="width: 20rem; margin: 20px; display: inline-block;">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/customer-feedback">
+        <img class="card-img-top" src="assets/feedback.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Feedback</h5>
+        </div>
+      </a>
+    </div>
+
+  </div>
+  <br><br><br><br><br><br><br><br><br>
+</body>

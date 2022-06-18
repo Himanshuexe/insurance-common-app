@@ -1,0 +1,25 @@
+<div>
+    <h2 class="text-center">{{title}}</h2>
+  </div>
+<div class="container">
+    <form>
+        <table class="table table-bordered">
+            <tbody>
+                <tr>
+                    <td scope="col"><strong>Claim Deduction:<br>(in Percentage %)</strong></td>
+                    <td scope="col"><input type="text" name="agentname" class="form-control"
+                         [(ngModel)]="claimDeduction"></td> 
+                </tr>
+                <tr>
+                    <td scope="col"><strong>Penalty Amount:<br>(in Percentage %)</strong></td>
+                    <td scope="col"><input type="text" name="agentname" class="form-control"
+                         [(ngModel)]="penaltyAmount"></td> 
+                </tr>
+                <tr>
+                    <td colspan="2"><button type="submit" class="btn btn-primary">Update</button></td>
+                  </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+

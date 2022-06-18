@@ -1,0 +1,53 @@
+<div>
+    <h2 class="text-center">{{title}}</h2>
+  </div>
+  <div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td scope="col"><strong>Insurance Type:</strong></td>
+            <td scope="col"><input type="text" name="insuranceType" class="form-control"
+                 [(ngModel)]="insuranceType"></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Insurance Scheme:</strong></td>
+            <td><input type="text" name="insuranceScheme" class="form-control"
+                 max="2004-06-11" value="" [(ngModel)]="insuranceScheme" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>image:</strong></td>
+            <td><input type="file" name="image" class="form-control"
+                 value="" [(ngModel)]="image" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Commission for New Registration:<br>(in percentage %)</strong></td>
+            <td><input type="text" class="form-control"
+                 name="commissionForNewReg" value="" [(ngModel)]="commissionNewReg" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Commission for Installment Payment:<br>(in percentage %)</strong></td>
+            <td><input type="text" class="form-control" name="commissionForInstallmentPay"
+                 value=""   [(ngModel)]="commissionInstallementPay"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Note:</strong></td>
+            <td><textarea class="form-control" name="note" [(ngModel)]="note"></textarea></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Status:</strong></td>
+            <td><select name="status" class="form-control" 
+               [(ngModel)]="status">
+                <option value="">Select-</option>
+                <option value="active">Active</option>
+                <option value="inactive">InActive</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;"><button type="submit" class="btn btn-danger">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+

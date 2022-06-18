@@ -1,0 +1,25 @@
+<div class="container" style="background-color: whitesmoke; margin: 20px;">
+<form (ngSubmit)="onSubmit()">
+    <h1 style="text-align: center;">Send Mail</h1>
+    <label for="email">Email ID:</label>
+    <input type="text" name="email_id"  [(ngModel)]="credentials.email_id" class="form-control" />
+
+    <label for="subject">Subject:</label>
+    <input type="text" name="subject" [(ngModel)]="credentials.subject" class="form-control"/>
+
+    <div class="form-outline">
+        <label class="form-label" for="textAreaExample">Message</label>
+        <textarea class="form-control" name="message"  [(ngModel)]="credentials.message" id="textAreaExample1" rows="4"></textarea>
+      </div>
+      <br>
+
+      <div class="form-outline">
+        <label class="form-label" for="text">Referral</label>
+        <textarea class="form-control" id="textAreaExample1" name="referral" rows="2"
+         disabled>http://localhost:8080</textarea>
+      </div>
+<br>
+<div style="text-align: center;">
+    <button type="submit" class="btn btn-danger">Send Mail</button>
+</div>
+  </form></div>

@@ -1,0 +1,33 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Customer Name</th>
+                        <th>Insurance Account No.</th>
+                        <th>Withdrawal Date</th>
+                        <th>Bank Details</th>
+                        <th>Withdrawal Amount</th>
+                        <th>Withdrawal Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="customerName"></td>
+                        <td [(ngModel)]="insuranceAccountNo"></td>
+                        <td [(ngModel)]="withdrawalDate"></td>
+                        <td [(ngModel)]="bankDetails"></td>
+                        <td [(ngModel)]="withdrawalAmount"></td>
+                        <td [(ngModel)]="withdrawalStatus"></td>
+                        <td [(ngModel)]="action"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+

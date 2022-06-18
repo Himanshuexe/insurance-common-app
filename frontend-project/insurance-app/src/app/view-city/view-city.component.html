@@ -1,0 +1,28 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="city"></td>
+                        <td [(ngModel)]="status"></td>
+                        <td><a href="">Edit</a> | <a href="">Delete</a></td>
+                       
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+
+

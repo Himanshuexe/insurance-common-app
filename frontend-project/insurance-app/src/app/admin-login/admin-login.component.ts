@@ -7,51 +7,33 @@ import { LoginService } from '../services/services/login.service';
   selector: 'admin-login',
   templateUrl: './admin-login.component.html',
   styleUrls: ['./admin-login.component.css'],
+  providers: [LoginService]
 })
 export class AdminLoginComponent implements OnInit {
   credentials = {
     userId: '',
     password: ''
   }
+  token: any = [];
   title: string = "Admin Login"
-  constructor(private loginService: LoginService, private route: Router) { }
+  constructor(private loginService: LoginService, private route: Router) {
+    document.body.style.backgroundColor = '#1434A4'
+  }
 
   ngOnInit(): void {
   }
 
-
-  // onSubmit() {
-  //   if ((this.credentials.userId != '' && this.credentials.password != '') &&
-  //     (this.credentials.userId != null && this.credentials.password != null)) {
-  //     this.loginService.loginUser(this.credentials).
-  //       subscribe((response: any) => {
-  //         console.log(response.token);
-  //         this.loginService.loginUser(response.token);
-  //         window.location.href = "/";
-
-  //       },
-  //         error => {
-  //           console.log(error);
-  //           alert("**Wrong Credentials Entered")
-  //         })
-  //   } else {
-  //     alert("**Please Fill both Username and Password");
-  //   }
-
-  // }
   getUserFormData(data: any) {
-    console.log(data);
-    this.loginService.loginUser(data).
-      subscribe((response: any) => {
-        console.log(response.token);
-        localStorage.setItem("token", response.token)
-        localStorage.setItem("id", data.id)
-        this.route.navigateByUrl("admin-dashboard")
-
-      },
-        error => {
-          console.log(error);
-          alert("**Wrong Credentials Entered")
-        })
+    // console.log('user data ' + data);
+    this.loginService.loginUser(data).subscribe(user => {
+      this.token = user
+      console.log(this.token.token)
+      console.log(data.id)
+      localStorage.setItem("token", this.token.token);
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("username", data.name)
+      this.route.navigate(['/admin-dashboard'])
+      document.body.style.backgroundColor = 'white'
+    })
   }
 }

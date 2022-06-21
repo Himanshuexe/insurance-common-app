@@ -1,0 +1,87 @@
+<div>
+    <h2 class="text-center">{{title}}</h2>
+  </div>
+  <div class="container">
+    <form (ngSubmit)="onSubmit()">
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td scope="col"><strong>Insurance Type:</strong></td>
+            <td scope="col"><input type="text" name="insuranceType" class="form-control"
+                 [(ngModel)]="insuranceType"></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Insurance Scheme:</strong></td>
+            <td><input type="text" name="insuranceScheme" class="form-control"
+                 max="2004-06-11" value="" [(ngModel)]="insuranceScheme" /></td>
+          </tr>
+
+          <tr>
+            <td scope="col"><strong>Policy Term</strong></td>
+            <td><input type="text" class="form-control"
+                 name="policyTerm" value="" [(ngModel)]="policyTerm" /></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Minimum</strong></td>
+            <td><input type="text" class="form-control" name="minimumTerm"
+                 value=""   [(ngModel)]="minimumTerm"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Maximum</strong></td>
+            <td><input type="text" class="form-control" name="maximumTerm"
+                 value=""   [(ngModel)]="maximumTerm"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Age</strong></td>
+            <td><input type="text" class="form-control" name="age"
+                 value=""   [(ngModel)]="age"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Minimum</strong></td>
+            <td><input type="text" class="form-control" name="minimumAge"
+                 value=""   [(ngModel)]="minimumAge"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Maximum</strong></td>
+            <td><input type="text" class="form-control" name="maximumTerm"
+                 value=""   [(ngModel)]="maximumAge"/></td>
+          </tr>
+
+          <tr>
+            <td scope="col"><strong>Total investment Amount</strong></td>
+            <td><input type="text" class="form-control" name="age"
+                 value=""   [(ngModel)]="totalInvestment"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Minimum</strong></td>
+            <td><input type="text" class="form-control" name="minimumInvestment"
+                 value=""   [(ngModel)]="minimumInvestment"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Maximum</strong></td>
+            <td><input type="text" class="form-control" name="maximumInvestment"
+                 value=""   [(ngModel)]="maximumInvestment"/></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Profit Ratio:</strong></td>
+            <td><input type="text" class="form-control" name="profitRatio"
+                 value=""   [(ngModel)]="profitRatio"/></td>
+          </tr>
+
+          <tr>
+            <td scope="col"><strong>Status:</strong></td>
+            <td><select name="status" class="form-control" 
+               [(ngModel)]="status">
+                <option value="">Select-</option>
+                <option value="active">Active</option>
+                <option value="inactive">InActive</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td colspan="2" style="text-align: center;"><button type="submit" class="btn btn-danger">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+

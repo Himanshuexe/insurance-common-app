@@ -21,7 +21,6 @@ import com.monocept.model.dto.CustomerTransactionDto;
 import com.monocept.model.dto.SendFeedBackDto;
 import com.monocept.service.CustomerService;
 
-
 @RestController
 @RequestMapping(path = "/api/v1/customer")
 public class CustomerController {
@@ -32,56 +31,64 @@ public class CustomerController {
 	public CustomerController() {
 	}
 
-	@GetMapping
+	@GetMapping(path = "/all")
 	public ResponseEntity<List<CustomerDto>> allCustomer() {
 		return ResponseEntity.ok(customerService.getAllCustomer());
 	}
-	
+
 	@PostMapping(path = "/addCustomer")
 	public ResponseEntity<Customer> addCustomer(@RequestBody Customer customer) {
 		return ResponseEntity.ok(customerService.addCustomer(customer));
 	}
-	
-	@GetMapping(path = "/{id}")
-	public ResponseEntity<Customer> singleCustomer(@PathVariable("id") int id){
+
+	@GetMapping(path = "/single/{id}")
+	public ResponseEntity<Customer> singleCustomer(@PathVariable("id") int id) {
 		System.out.println(id);
 		return ResponseEntity.ok(customerService.getSingleId(id));
 	}
+
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping(path = "/{id}/activate")
-	public ResponseEntity<Customer> activateCustomer(@PathVariable("id") int id){
+	public ResponseEntity<Customer> activateCustomer(@PathVariable("id") int id) {
 		System.out.println(id);
 		return ResponseEntity.ok(customerService.activateCustomer(id));
 	}
+
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping(path = "/{id}/deactivate")
-	public ResponseEntity<Customer> deactivateCustomer(@PathVariable("id") int id){
+	public ResponseEntity<Customer> deactivateCustomer(@PathVariable("id") int id) {
 		System.out.println(id);
 		return ResponseEntity.ok(customerService.deactivateCustomer(id));
 	}
+
 	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping(path = "/{id}/delete")
-	public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") int id){
+	public ResponseEntity<Customer> deleteCustomer(@PathVariable("id") int id) {
 		System.out.println(id);
 		return ResponseEntity.ok(customerService.deleteCustomer(id));
 	}
 
-	@PostMapping(path="/{customerId}/addFeedback")
-	public ResponseEntity<SendFeedBackDto> addFeedBack(@PathVariable("customerId") int customerId, @RequestBody SendFeedBackDto feedback){
+	@PostMapping(path = "/{customerId}/addFeedback")
+	public ResponseEntity<SendFeedBackDto> addFeedBack(@PathVariable("customerId") int customerId,
+			@RequestBody SendFeedBackDto feedback) {
 		return ResponseEntity.ok(customerService.addFeedBack(customerId, feedback));
 	}
-	
+
 	@PostMapping("/{customerId}/addPolicy/{insurancePlanId}/")
-	public ResponseEntity<String> addPolicy(@RequestBody Policy policy, @PathVariable("customerId") int customerId, @PathVariable("insurancePlanId") int insurancePlanId){
+	public ResponseEntity<String> addPolicy(@RequestBody Policy policy, @PathVariable("customerId") int customerId,
+			@PathVariable("insurancePlanId") int insurancePlanId) {
 		return ResponseEntity.ok(customerService.addPolicy(customerId, insurancePlanId, policy));
 	}
+
 	@PostMapping("/{customerId}/addCustomerTransaction")
-	public ResponseEntity<Customer> addCustomerTransaction(@PathVariable("customerId") int customerId,    @RequestBody CustomerTransaction customerTransaction){
+	public ResponseEntity<Customer> addCustomerTransaction(@PathVariable("customerId") int customerId,
+			@RequestBody CustomerTransaction customerTransaction) {
 		return ResponseEntity.ok(customerService.addCustomerTransaction(customerId, customerTransaction));
 	}
-	
+
 	@GetMapping(path = "/{customerId}/transactions")
-	public ResponseEntity<List<CustomerTransactionDto>> getSingleCustomerTransaction(@PathVariable("customerId") int customerId){
+	public ResponseEntity<List<CustomerTransactionDto>> getSingleCustomerTransaction(
+			@PathVariable("customerId") int customerId) {
 		return ResponseEntity.ok(customerService.getSingleCustomerTransaction(customerId));
 	}
 }

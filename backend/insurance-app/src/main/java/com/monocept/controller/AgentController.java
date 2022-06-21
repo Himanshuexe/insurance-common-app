@@ -23,7 +23,7 @@ public class AgentController {
 	@Autowired
 	private AgentService agentService;
 
-	@GetMapping
+	@GetMapping(path = "/all")
 	public ResponseEntity<List<Agent>> getAgents() {
 		return ResponseEntity.ok(agentService.getAgents());
 	}
@@ -34,7 +34,7 @@ public class AgentController {
 		return ResponseEntity.ok(agent);
 	}
 
-	@GetMapping("/{id}")
+	@GetMapping("/single/{id}")
 	public ResponseEntity<Agent> getAgentById(@PathVariable("id") int id) {
 		return ResponseEntity.ok(agentService.getAgentById(id));
 	}
@@ -53,8 +53,15 @@ public class AgentController {
 	public ResponseEntity<String> deleteAgent(@PathVariable("id") int id) {
 		return ResponseEntity.ok(agentService.deleteAgent(id));
 	}
+
 	@PostMapping("/{agentId}/addAgentTransaction")
-	public ResponseEntity<Agent> addCustomerTransaction(@PathVariable("agentId") int agentId,    @RequestBody AgentTransaction agentTransaction){
+	public ResponseEntity<Agent> addCustomerTransaction(@PathVariable("agentId") int agentId,
+			@RequestBody AgentTransaction agentTransaction) {
 		return ResponseEntity.ok(agentService.addAgentTransaction(agentId, agentTransaction));
+	}
+
+	@GetMapping("/{agentId}/getTransactions")
+	public ResponseEntity<List<AgentTransaction>> getSingleTransaction(@PathVariable("agentId") int agentId) {
+		return ResponseEntity.ok(agentService.getSingleAgentTransaction(agentId));
 	}
 }

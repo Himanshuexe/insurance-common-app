@@ -11,10 +11,14 @@ import javax.persistence.Id;
 public class MasterTransaction extends TransactionEntity {
 
 	public MasterTransaction() {
+		super();
 	}
 
 	public MasterTransaction(Timestamp time, String description, double amount, String type) {
 		super(time, type, amount, type);
+	}
+	public MasterTransaction( String type, double amount, String description) {
+		super(type, amount, description);
 	}
 
 }

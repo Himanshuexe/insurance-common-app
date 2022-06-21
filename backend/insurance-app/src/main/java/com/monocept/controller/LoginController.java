@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.monocept.jwthelper.JwtUtil;
+import com.monocept.helper.JwtUtil;
 import com.monocept.model.Customer;
 import com.monocept.model.JwtResponse;
 import com.monocept.model.dto.LoginDto;

@@ -24,14 +24,16 @@ public class FeedbackController {
 	FeedbackService feedbackService;
 
 	public FeedbackController() {
-		
+
 	}
-	@GetMapping
-	public ResponseEntity<List<FeedbackDto>> gellAllFeedback(){
+
+	@GetMapping(path = "/all")
+	public ResponseEntity<List<FeedbackDto>> gellAllFeedback() {
 		return ResponseEntity.ok(feedbackService.getAll());
 	}
-	@PostMapping(path =  "{feedbackId}/replyFeedback")
-	public ResponseEntity<ReplyDto> replyFeedback(@PathVariable("feedbackId") int id,@RequestBody ReplyDto replyDto ){
+
+	@PostMapping(path = "{feedbackId}/replyFeedback")
+	public ResponseEntity<ReplyDto> replyFeedback(@PathVariable("feedbackId") int id, @RequestBody ReplyDto replyDto) {
 		return ResponseEntity.ok(feedbackService.addFeedback(id, replyDto));
 	}
 }

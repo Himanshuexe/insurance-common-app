@@ -52,11 +52,18 @@ public class InsuranceService {
 		return repo.getInsurancePlans().stream().map(p-> new InsurancePlanDto(p.getId(),p.getName() , p.getInsuranceType().getName(), p.getDescription(), p.getNewRegistrationCommission(), p.getInstallmentPaymentCommission(), p.getPolicyTermMin(), p.getPolicyTermMax(), p.getMinAge(), p.getMaxAge(), p.getSumAssuredMin(), p.getSumAssuredMax(), p.getProfitRatio(), p.getStatus(), p.isDeleted())).collect(Collectors.toList());
 	}
 	
+	
 	public InsurancePlanDto getInsurancePlanById(int id) {
 		InsurancePlan p = repo.getInsurancePlanById(id);   
 		return new InsurancePlanDto(p.getId(),p.getName() , p.getInsuranceType().getName(), p.getDescription(), p.getNewRegistrationCommission(), p.getInstallmentPaymentCommission(), p.getPolicyTermMin(), p.getPolicyTermMax(), p.getMinAge(), p.getMaxAge(), p.getSumAssuredMin(), p.getSumAssuredMax(), p.getProfitRatio(), p.getStatus(), p.isDeleted());
 	}
-	
+	public List<InsurancePlanDto> getInsurancePlanByTypeId(int id) {
+		return repo.getInsurancePlanByTypeId(id).stream().map(p-> new InsurancePlanDto(p.getId(),p.getName() , p.getInsuranceType().getName(), p.getDescription(), p.getNewRegistrationCommission(), p.getInstallmentPaymentCommission(), p.getPolicyTermMin(), p.getPolicyTermMax(), p.getMinAge(), p.getMaxAge(), p.getSumAssuredMin(), p.getSumAssuredMax(), p.getProfitRatio(), p.getStatus(), p.isDeleted())).collect(Collectors.toList());
+	}
+	public InsurancePlan getInsurancePlanByIdFull(int id) {
+		InsurancePlan p = repo.getInsurancePlanById(id);   
+		return p;
+	}
 	public String activateInsurancePlan(int id) {
 		return repo.activateInsurancePlan(id);
 	}

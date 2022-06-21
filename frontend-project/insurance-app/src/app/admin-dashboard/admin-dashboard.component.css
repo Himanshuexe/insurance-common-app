@@ -1,8 +1,22 @@
 img {
     float: left;
-    width:  100px;
+    width: 100px;
     height: 100px;
     object-fit: cover;
 }
 
+.card {
+    border-radius: 3%;
+}
 
+.navbar-nav {
+    margin-left: 25%;
+}
+
+.card-img-top {
+    fill: #1434A4
+}
+
+h5 {
+    color: black;
+}

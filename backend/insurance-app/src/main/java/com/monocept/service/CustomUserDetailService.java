@@ -47,17 +47,17 @@ public class CustomUserDetailService implements UserDetailsService {
 		try {
 			employee = employeeRepository.getEmployeeById(Integer.valueOf(username));
 		} catch (Exception e) {
-			System.err.println(e);
+			//System.err.println(e);
 		}
 		try {
 			customer = customerRepository.getSingleCustomer(Integer.valueOf(username));
 		} catch (Exception e) {
-			System.err.println(e);
+			//System.err.println(e);
 		}
 		try {
 			agent = agentRepository.getAgentById(Integer.valueOf(username));
 		} catch (Exception e) {
-			System.err.println(e);
+			//System.err.println(e);
 		}
 
 		if (employee != null) {

@@ -20,9 +20,19 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let insuranceTyp of insuranceTypes">
                     <tr>
-                        <td [(ngModel)]="insuranceType"></td>
+                        <td>{{insuranceTyp.insuranceTypeName}}</td>
+                        <td>{{insuranceTyp.name}}</td>
+                        <td>{{insuranceTyp.policyTermMin}}</td>
+                        <td>{{insuranceTyp.policyTermMax}}</td>
+                        <td>{{insuranceTyp.minAge}}</td>
+                        <td>{{insuranceTyp.maxAge}}</td>
+                        <td>{{insuranceTyp.sumAssuredMin}}</td>
+                        <td>{{insuranceTyp.sumAssuredMax}}</td>
+                        <td>{{insuranceTyp.profitRatio}}%</td>
+                        <td>{{insuranceTyp.status}}</td>
+                        <!-- <td [(ngModel)]="insuranceType"></td>
                         <td [(ngModel)]="insuranceScheme"></td>
                         <td [(ngModel)]="policyMin"></td>
                         <td [(ngModel)]="policyMax"></td>
@@ -31,7 +41,7 @@
                         <td [(ngModel)]="sumMin"></td>
                         <td [(ngModel)]="sumMax"></td>
                         <td [(ngModel)]="profitRatio"></td>
-                        <td [(ngModel)]="status"></td>
+                        <td [(ngModel)]="status"></td> -->
                         <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
                     </tr>
                 </tbody>

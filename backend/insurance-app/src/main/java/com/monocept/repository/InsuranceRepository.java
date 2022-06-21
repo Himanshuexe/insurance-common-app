@@ -73,6 +73,10 @@ public class InsuranceRepository {
 	public InsurancePlan getInsurancePlanById(int id) {
 		return (InsurancePlan) em.createQuery("FROM InsurancePlan WHERE id = "+id+" ").getSingleResult();
 	}
+	public List<InsurancePlan> getInsurancePlanByTypeId(int id) {
+		return (List<InsurancePlan>) em.createQuery("FROM InsurancePlan WHERE insurance_type_id = "+id+" ").getResultList();
+	}
+	
 	
 	@Transactional
 	public String activateInsurancePlan(int id) {

@@ -17,8 +17,9 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.monocept.jwthelper.JwtUtil;
+import com.monocept.helper.JwtUtil;
 import com.monocept.service.CustomUserDetailService;
+
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
@@ -36,18 +37,13 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
 		String requestTokenHeader = request.getHeader("Authorization");
-		System.out.println("in the filtereeeeeeeeeeeeeeeeeeeeeeeeeee");
-
 		String userName = null;
 		String jwtToken = null;
-
 		if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
 			jwtToken = requestTokenHeader.substring(7);
-
 			try {
 				userName = this.jwtUtil.extractUsername(jwtToken);
 			} catch (Exception e) {
-				// TODO: handle exception
 			}
 			UserDetails userDetails = this.customUserDetailService.loadUserByUsername(userName);
 
@@ -58,10 +54,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 						.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
 				SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-			}else {
-				System.out.println("some wrong in filter");
+			} else {
+				System.out.println("Problem occurred in filter");
 			}
-
 		}
 		filterChain.doFilter(request, response);
 	}

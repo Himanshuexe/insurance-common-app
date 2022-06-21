@@ -9,7 +9,7 @@ export class AdminService {
   constructor(private http: HttpClient) { }
 
   viewFeedback() {
-    let url = "http://localhost:8080/api/v1/feedback"
+    let url = "http://localhost:8080/api/v1/feedback/all"
     let token = "Bearer " + localStorage.getItem("token")
     return this.http.get<any[]>(url, {
       headers: new HttpHeaders({
@@ -32,13 +32,22 @@ export class AdminService {
     });
     return this.http.post(url, data, { headers: httpHeaders });
   }
-  getInsurnacePlanList() {
-    let url = "http://localhost:8080/api/v1/insurance/insurancePlan"
+
+  deleteEmployee(id: number) {
+    console.log(id)
+    let url = "http://localhost:8080/api/v1/employee/" + id + "/delete"
     const httpHeaders = new HttpHeaders({
       "Authorization": "Bearer " + localStorage.getItem("token")
     });
-    return this.http.get<any[]>(url, { headers: httpHeaders });
-
+    return this.http.get(url, { headers: httpHeaders });
   }
 
+  deleteAgent(id: number) {
+    console.log(id)
+    let url = "http://localhost:8080/api/v1/agent/" + id + "/delete"
+    const httpHeaders = new HttpHeaders({
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    });
+    return this.http.get(url, { headers: httpHeaders });
+  }
 }

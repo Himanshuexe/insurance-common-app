@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
   <div class="container text-center" style="margin-left: 100px;">
     <img class="img-fluid" src="assets/login.png" style="width: 115px;" />
   </div>
@@ -25,5 +25,28 @@
         </tr>
       </tbody>
     </table>
+  </form>
+</div> -->
+<div id="main">
+  <div class="background">
+    <!-- <div class="shape"></div>
+    <div class="shape"></div> -->
+  </div>
+  <form #userForm="ngForm" (ngSubmit)="getUserFormData(userForm.value)">
+    <h3>Admin Login</h3>
+
+    <label for="username">Username</label>
+    <input type="text" class="form-control" id="userId" placeholder="User Id" name="id" placeholder="Email or Phone"
+      id="username" ngModel />
+
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="pass" placeholder="Password" name="password" placeholder="Password"
+      id="password" ngModel />
+
+    <button id="submit" style="color: black;">Log In</button>
+    <!-- <div class="social">
+      <div class="go"><i class="fab fa-google"></i> Google</div>
+      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+    </div> -->
   </form>
 </div>

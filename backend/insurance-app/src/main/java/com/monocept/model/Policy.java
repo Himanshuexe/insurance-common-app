@@ -12,8 +12,8 @@ import javax.persistence.OneToOne;
 @Entity
 public class Policy extends com.monocept.model.Entity {
 	
-	private Date createdDate;
-	private Date maturityDate;
+	private Timestamp createdDate;
+	private Timestamp maturityDate;
 	private String premiumType;
 	private double premiumAmount;
 	private double profitRatio;
@@ -34,8 +34,8 @@ public class Policy extends com.monocept.model.Entity {
 		
 	}
 
-	public Policy(Date createdDate, Date maturityDate, String premiumType, double premiumAmount, double profitRatio,
-			double sumAssured) {
+	public Policy(Timestamp createdDate, Timestamp maturityDate, String premiumType, double premiumAmount,
+			double profitRatio, double sumAssured) {
 		super();
 		this.createdDate = createdDate;
 		this.maturityDate = maturityDate;
@@ -43,21 +43,22 @@ public class Policy extends com.monocept.model.Entity {
 		this.premiumAmount = premiumAmount;
 		this.profitRatio = profitRatio;
 		this.sumAssured = sumAssured;
+	
 	}
 
-	public Date getCreatedDate() {
+	public Timestamp getCreatedDate() {
 		return createdDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(Timestamp createdDate) {
 		this.createdDate = createdDate;
 	}
 
-	public Date getMaturityDate() {
+	public Timestamp getMaturityDate() {
 		return maturityDate;
 	}
 
-	public void setMaturityDate(Date maturityDate) {
+	public void setMaturityDate(Timestamp maturityDate) {
 		this.maturityDate = maturityDate;
 	}
 
@@ -100,7 +101,15 @@ public class Policy extends com.monocept.model.Entity {
 	public void setInsurancePlan(InsurancePlan insurancePlan) {
 		this.insurancePlan = insurancePlan;
 	}
-	
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
+
 	public Customer getCustomer() {
 		return customer;
 	}
@@ -108,22 +117,8 @@ public class Policy extends com.monocept.model.Entity {
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
-	
-	public void setAgent(Agent agent) {
-		this.agent = agent;
-	}
-	
-	public Agent getAgent() {
-		return agent;
-	}
 
-	@Override
-	public String toString() {
-		return "Policy [createdDate=" + createdDate + ", maturityDate=" + maturityDate + ", premiumType=" + premiumType
-				+ ", premiumAmount=" + premiumAmount + ", profitRatio=" + profitRatio + ", sumAssured=" + sumAssured
-				+ ", insuransePlan=" + insurancePlan + ", agent=" + agent + ", customer=" + customer + "]";
-	}
-	
+
 	
 
 }

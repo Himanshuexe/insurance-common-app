@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'agent-dashboard',
@@ -6,8 +7,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./agent-dashboard.component.css']
 })
 export class AgentDashboardComponent implements OnInit {
-username:string="Agent"
-  constructor() { }
+  title: string = 'e-Insurance'
+  username: string | null = localStorage.getItem("username")
+  constructor(private router: Router) {
+    if (localStorage.getItem("token") == null) {
+      this.router.navigateByUrl('/app-home')
+    }
+  }
 
   ngOnInit(): void {
   }

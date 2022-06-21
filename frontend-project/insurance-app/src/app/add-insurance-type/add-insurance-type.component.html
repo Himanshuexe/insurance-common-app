@@ -1,0 +1,39 @@
+<div>
+    <h2 class="text-center">{{title}}</h2>
+    <p class="text-center">Kindly enter the credentials</p>
+  </div>
+  <div class="container">
+    <form>
+      <table class="table table-bordered">
+        <tbody>
+          <tr>
+            <td scope="col"><strong>Insurance Type:</strong></td>
+            <td scope="col"><input type="text" name="agentname" class="form-control"
+                 [(ngModel)]="insuranceType"></td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Image:</strong></td>
+            <td>
+                <form class="form form-bordered">
+                <div class="form-group">
+                  <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                </div>
+              </form>
+            </td>
+          </tr>
+          <tr>
+            <td scope="col"><strong>Status:</strong></td>
+            <td><select name="state" class="form-control"  
+                [(ngModel)]="status">
+                <option value="">Select Status</option>
+                <option value="Intermediate">Active</option>
+                <option value="Graduate">DeActive</option>
+              </select></td>
+          </tr>
+          <tr>
+            <td colspan="2"><button type="submit" class="btn btn-primary">Submit</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>

@@ -11,8 +11,6 @@ import { AppComponent } from './app.component';
 import { CustomerLoginComponent } from './customer-login/customer-login.component';
 import { EmployeeLoginComponent } from './employee-login/employee-login.component';
 import { HomeComponent } from './home/home.component';
-import { ProtectionPlanComponent } from './protection-plan/protection-plan.component';
-import { ChildPlanComponent } from './child-plan/child-plan.component';
 import { CustomerDashboardComponent } from './customer-dashboard/customer-dashboard.component';
 import { CustomerProfileComponent } from './customer-profile/customer-profile.component';
 import { ViewInsuranceAccountDetailComponent } from './view-insurance-account-detail/view-insurance-account-detail.component';
@@ -49,6 +47,13 @@ import { ViewCityComponent } from './view-city/view-city.component';
 import { ViewStateComponent } from './view-state/view-state.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { CustomerRegistrationComponent } from './customer-registration/customer-registration.component';
+import { CommonModule } from '@angular/common';
+import { InsurancePlanListComponent } from './insurance-plan-list/insurance-plan-list.component';
+import { InsurancePlanDetailsComponent } from './insurance-plan-details/insurance-plan-details.component';
+import { FooterComponent } from './footer/footer.component';
+import { EditEmployeeComponent } from './edit-employee/edit-employee.component';
+import { EditAgentComponent } from './edit-agent/edit-agent.component';
+import { EditCustomerComponent } from './edit-customer/edit-customer.component';
 
 
 @NgModule({
@@ -59,9 +64,7 @@ import { CustomerRegistrationComponent } from './customer-registration/customer-
     EmployeeLoginComponent,
     CustomerLoginComponent,
     AgentLoginComponent,
-    ProtectionPlanComponent,
-    ChildPlanComponent,
-   CustomerRegistrationComponent,
+    CustomerRegistrationComponent,
     CustomerDashboardComponent,
     CustomerProfileComponent,
     ViewInsuranceAccountDetailComponent,
@@ -96,7 +99,13 @@ import { CustomerRegistrationComponent } from './customer-registration/customer-
     AddCityComponent,
     ViewCityComponent,
     ViewStateComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    InsurancePlanListComponent,
+    InsurancePlanDetailsComponent,
+    FooterComponent,
+    EditEmployeeComponent,
+    EditAgentComponent,
+    EditCustomerComponent
   ],
   imports: [
     BrowserModule,
@@ -104,7 +113,8 @@ import { CustomerRegistrationComponent } from './customer-registration/customer-
     FormsModule,
     HttpClientModule,
     NgbModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

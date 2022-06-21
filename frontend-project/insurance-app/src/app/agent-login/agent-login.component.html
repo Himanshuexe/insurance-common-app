@@ -1,4 +1,4 @@
-<div class="container mt">
+<!-- <div class="container mt">
     <div class="row">
         <div class="col-md-6 offset-md-3">
             <div class="container text-center" style="margin: 10px;">
@@ -17,4 +17,27 @@
             </form>
         </div>
     </div>
+</div> -->
+<div id="main">
+    <div class="background">
+        <!-- <div class="shape"></div>
+    <div class="shape"></div> -->
+    </div>
+    <form #userForm="ngForm" (ngSubmit)="getUserFormData(userForm.value)">
+        <h3>Agent Login</h3>
+
+        <label for="username">Username</label>
+        <input type="text" class="form-control" id="userId" placeholder="User Id" name="id" placeholder="Email or Phone"
+            id="username" ngModel />
+
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="pass" placeholder="Password" name="password"
+            placeholder="Password" id="password" ngModel />
+
+        <button id="submit" style="color: black;">Log In</button>
+        <!-- <div class="social">
+      <div class="go"><i class="fab fa-google"></i> Google</div>
+      <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+    </div> -->
+    </form>
 </div>

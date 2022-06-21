@@ -23,6 +23,9 @@ public class CustomerTransaction extends TransactionEntity{
 		super(time, description, amount, type);
 	}
 
+	public CustomerTransaction( String description, double amount, String type) {
+		super( description, amount, type);
+	}
 	public Customer getCustomer() {
 		return customer;
 	}

@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-primary" style="color: white;">
+<nav class="navbar navbar-expand-lg navbar-dark" style=" background-color: #1434A4; color: white;">
   <a class="navbar-brand" href="#"><strong>{{title}}</strong></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,25 +28,30 @@
           <strong>Insurance Plan</strong>
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="child-plan">Child Plan</a>
-          <a class="dropdown-item" href="#">Protection Plan</a>
+          <a ngDropDownItem *ngFor="let insuranceType of insuranceTypes" class="dropdown-item"
+            href="/insurance-plan/{{insuranceType.id}}">{{insuranceType.name}}</a>
         </div>
+
       </li>
       <li class="nav-item">
-        <a class="nav-link " href="#"><strong>Agent Login</strong></a>
+        <a class="nav-link " href="/agent-login"><strong>Agent Login</strong></a>
       </li>
       <li class="nav-item">
         <a class="nav-link " href="#"><strong>Contact</strong></a>
       </li>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <li *ngIf="isloggedIn" class="nav-item">
+        <a class="btn btn-danger" (click)="logout()" style="">Logout</a>
+      </li>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+    <!-- <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form> -->
   </div>
 </nav>
 
-<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+<!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -71,10 +76,23 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
+</div> -->
+<div>
+  <img src="assets\Home\AdobeStock_286983625.jpg" style="width: 100%;" alt="">
 </div>
-<div style="background-color:#f2f2f2; height: 200px;">
-  <h1 id="services" class="text-center">Service</h1>
-</div>
+<div style=" background-color:#f2f2f2; height: 200px;"><br>
+  <h1 id="services" class="text-center">Services</h1><br>
+  <div id="services" *ngFor="let insuranceType of insuranceTypes">
+    <div class="card">
+      <a class="card-block stretched-link text-decoration-none" href="/insurance-plan/{{insuranceType.id}}">
+        <br>
+        <div class="card-body">
+          <h5 class="card-title">{{insuranceType.name}}</h5>
+        </div>
+      </a>
+    </div>
+  </div>
+</div><br><br><br>
 <footer class="text-center text-white" style="background-color: #F9F6EE">
   <!-- Grid container -->
   <div class="container pt-4">
@@ -110,7 +128,9 @@
   <!-- Copyright -->
   <div class="text-center text-dark p-3" style="background-color: #1C1C1C;">
     <span style="color:white;">&copy; 2020 Copyright:</span>&nbsp;
-    <a class="text-light" href="#">e-insurance.com</a>
+    <a class="text-light" href="#">e-insurance.com</a><br>
+    <a href="/admin-login">Admin Login</a>&nbsp;|&nbsp;
+    <a href="/employee-login">Employee Login</a>
   </div>
   <!-- Copyright -->
 </footer>

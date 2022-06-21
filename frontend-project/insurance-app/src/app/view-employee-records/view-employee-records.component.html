@@ -1,4 +1,5 @@
 <br><br><br>
+
 <body>
     <h2 class="text-center">{{title}}</h2>
     <div class="container">
@@ -9,24 +10,31 @@
                         <th>Employee Type</th>
                         <th>Employee Name</th>
                         <th>Login Id</th>
-                        <th>Password</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <th>Delete</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let employee of employees">
                     <tr>
-                        <td [(ngModel)]="empType"></td>
+                        <td>{{employee.type}}</td>
+                        <td>{{employee.name}}</td>
+                        <td>{{employee.id}}</td>
+                        <td><button name="{{employee.id}}" class="btn btn-primary" value="{{employee.status}}" (click)="changeStatus($event)">
+                            {{employee.status}}
+                        </button></td>
+
+                        <td><button name="{{employee.id}}" class="btn btn-danger" value="{{employee.isDeleted}}" (click)="action($event)">
+                                {{employee.isDeleted}}
+                            </button></td>
+                        <!-- <td [(ngModel)]="empType"></td>
                         <td [(ngModel)]="empName"></td>
                         <td [(ngModel)]="login_id"></td>
                         <td [(ngModel)]="password"></td>
-                        <td [(ngModel)]="status"></td>
-                        <td><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
+                        <td [(ngModel)]="status"></td> -->
+                       
                     </tr>
                 </tbody>
             </table>
         </form>
     </div>
 </body>
-
-

@@ -21,45 +21,42 @@ import com.monocept.service.CustomUserDetailService;
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class MySecurityConfig extends WebSecurityConfigurerAdapter {
-	
+
 	@Autowired
-    private CustomUserDetailService customUserDetailService;
+	private CustomUserDetailService customUserDetailService;
 	@Autowired
 	private JwtAuthenticationFilter jwtFilter;
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-			auth.userDetailsService(customUserDetailService);
+		auth.userDetailsService(customUserDetailService);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-	http.csrf()
-		.disable()
-		.cors()
-		.disable()
-		.authorizeRequests()
-		.antMatchers("/api/v1/login/**").permitAll()
-		.anyRequest().authenticated()
-		.and()
-		.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	
-	
-	http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
+		http.csrf().disable().cors().disable().authorizeRequests()
+				.antMatchers("/swagger-ui.html/**", "/configuration/**", "/swagger-resources/**", "/v2/api-docs",
+						"/webjars/**", "/swagger-ui/**", "/api/v1/login/**", "/api/v1/insurance/insuranceType",
+						"/api/v1/insurance/insurancePlan/type/**", "/api/v1/insurance/insurancePlan",
+						"/api/v1/insurance/insurancePlan/id/**")
+				.permitAll().anyRequest().authenticated().and().sessionManagement()
+				.sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+		http.addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class);
 	}
-	
+
 	@Bean
 	public PasswordEncoder passwordEncoder() {
 		return NoOpPasswordEncoder.getInstance();
 	}
+
 	@Bean
 	public AuthenticationManager authenticationManagerBean() throws Exception {
 		return super.authenticationManagerBean();
 	}
 
-	  @Override
-	      public void configure(WebSecurity web) throws Exception {
-		  web.ignoring().antMatchers("/static/**");
-	      }
-	
-	
+	@Override
+	public void configure(WebSecurity web) throws Exception {
+		web.ignoring().antMatchers("/static/**");
+	}
+
 }

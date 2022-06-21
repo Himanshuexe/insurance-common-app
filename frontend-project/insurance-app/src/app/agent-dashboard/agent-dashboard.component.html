@@ -1,59 +1,68 @@
-<body style="background-color: bisque; ">
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color:grey;">
-        <div class="container-fluid">
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-                    <li class="nav-item dropdown" ngbDropdown>
-                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                            Account
-                        </a>
-                        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Profile</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" href="#">Change Password</a></li>
-                        </ul>
-                    </li>
+<body style="background-color: white; ">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1434A4">
+        <a class="navbar-brand" href="#"><strong>{{title}}</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" routerLink="/marketingAgent">Marketing</a>
-                    </li>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Account
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" href="#">Profile</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" href="#">Change Password</a></li>
+                    </ul>
+                </li>
 
-                    <li class="nav-item dropdown" ngbDropdown>
-                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                            Insurance
-                        </a>
-                        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCustomer">View Customers</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/InsuranceAccountForAgent">Insurance Account</a></li>
-                            <!-- <li ngbDropdownItem><hr class="dropdown-divider"></li> -->
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyPay">View Policy Payment</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyClaim">View Policy Claim</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown" ngbDropdown>
-                        <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
-                            Account
-                        </a>
-                        <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommission">View Commission</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommWithdrawal">View Commission Withdrawl</a></li>
-                            <li ngbDropdownItem><a class="dropdown-item" routerLink="/404Error">Withdraw Amount</a></li>
-                        </ul>
-                    </li>
-                 
-                    <li class="nav- " style="margin-left: 70%;">
-                        <button class="btn btn-danger">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" routerLink="/marketingAgent">Marketing</a>
+                </li>
+
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Insurance
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCustomer">View Customers</a>
+                        </li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/InsuranceAccountForAgent">Insurance
+                                Account</a></li>
+                        <!-- <li ngbDropdownItem><hr class="dropdown-divider"></li> -->
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyPay">View Policy
+                                Payment</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewPolicyClaim">View Policy
+                                Claim</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item dropdown" ngbDropdown>
+                    <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
+                        Account
+                    </a>
+                    <ul class="dropdown-menu" ngbDropdownMenu aria-labelledby="navbarScrollingDropdown">
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommission">View
+                                Commission</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/viewCommWithdrawal">View
+                                Commission Withdrawl</a></li>
+                        <li ngbDropdownItem><a class="dropdown-item" routerLink="/404Error">Withdraw Amount</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav- " style="margin-left: 70%;">
+                    <button class="btn btn-danger">
                         <a class="nav-link active" routerLink="/app-home">Logout</a></button>
-                    </li>
-                </ul>
-            </div>
+                </li>
+            </ul>
         </div>
     </nav>
-    
-    <div  style="text-align: center; ; ">
+
+    <div style="text-align: center; ; ">
         <h1 style="margin-top:20px ; color:black;">Welcome</h1>
         <h3 style="color: black;">{{username}}</h3>
 
@@ -104,7 +113,7 @@
         </div>
 
         <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none"routerLink="/viewPolicyClaim">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/viewPolicyClaim">
                 <img class="card-img-top" src="assets/policyClaim.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Policy Claim</h5>
@@ -113,7 +122,7 @@
         </div>
         <br>
         <div class="card" style="width: 18em; margin: 20px; display: inline-block;">
-            <a class="card-block stretched-link text-decoration-none"  routerLink="/viewCommission">
+            <a class="card-block stretched-link text-decoration-none" routerLink="/viewCommission">
                 <img class="card-img-top" src="assets/viewCommission.png" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">View Commission &nbsp;</h5>

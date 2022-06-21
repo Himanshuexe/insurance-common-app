@@ -26,9 +26,28 @@ export class CustomerService {
     return this.http.post(url, data);
   }
 
-  getCustomers() {
-    let url = "http://localhost:8080/api/v1/customer"
-    let token = "Bearer " + localStorage.getItem("token")
+  getAllCustomers() {
+    let url = "http://localhost:8080/api/v1/customer/all"
+    const httpHeaders = new HttpHeaders({
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    });
+
+    return this.http.get<any[]>(url, { headers: httpHeaders });
+  }
+
+  userProfile() {
+    let url = "http://localhost:8080/api/v1/customer/single/" + localStorage.getItem('userId')
+    const httpHeaders = new HttpHeaders({
+      "Authorization": "Bearer " + localStorage.getItem("token")
+    });
+    console.log(url);
+    return this.http.get(url, { headers: httpHeaders });
+  }
+
+
+  activateCustomer(id: number) {
+    let token = "Bearer " + localStorage.getItem("token");
+    let url = "http://localhost:8080/api/v1/customer/" + id + "/activate";
     return this.http.get<any[]>(url, {
       headers: new HttpHeaders({
         'Authorization': token
@@ -36,13 +55,14 @@ export class CustomerService {
     })
   }
 
-  userProfile() {
-    let url = "http://localhost:8080/api/v1/customer/" + localStorage.getItem('userId')
-    const httpHeaders = new HttpHeaders({
-      "Authorization": "Bearer " + localStorage.getItem("token")
-    });
-    console.log(url);
-    return this.http.get(url, { headers: httpHeaders });
+  deactivateCustomer(id: number) {
+    let token = "Bearer " + localStorage.getItem("token");
+    let url = "http://localhost:8080/api/v1/customer/" + id + "/deactivate";
+    return this.http.get<any[]>(url, {
+      headers: new HttpHeaders({
+        'Authorization': token
+      })
+    })
   }
 }
 

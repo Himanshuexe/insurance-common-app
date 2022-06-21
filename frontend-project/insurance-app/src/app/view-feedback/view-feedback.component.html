@@ -1,4 +1,5 @@
 <br><br><br>
+
 <body>
     <h2 class="text-center">{{title}}</h2>
     <div class="container">
@@ -14,13 +15,18 @@
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let feedback of feedbacks">
                     <tr>
-                        <td [(ngModel)]="customerName"></td>
+                        <td>{{feedback.customerName}}</td>
+                        <td>{{feedback.title}}</td>
+                        <td>{{feedback.message}}</td>
+                        <td>{{feedback.date}}</td>
+                        <td>{{feedback.reply}}</td>
+                        <!-- <td [(ngModel)]="customerName"></td>
                         <td [(ngModel)]="Qtitle"></td>
                         <td [(ngModel)]="message"></td>
                         <td [(ngModel)]="contactDate"></td>
-                        <td [(ngModel)]="reply"></td>
+                        <td [(ngModel)]="reply"></td> -->
                         <td [(ngModel)]="action"><a href="edit">Edit/</a><br><a href="delete">Delete</a></td>
                     </tr>
                 </tbody>

@@ -25,7 +25,7 @@ public class EmployeeRepository {
 	}
 	
 	public List<Employee> getEmployees() {
-		return em.createQuery("From Employee").getResultList();
+		return em.createQuery("From Employee Where type="+"\'normal\'").getResultList();
 	}
 	
 	public Employee getEmployeeById(int id) {

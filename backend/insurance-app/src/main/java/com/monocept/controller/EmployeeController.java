@@ -20,36 +20,39 @@ import com.monocept.service.EmployeeService;
 public class EmployeeController {
 	@Autowired
 	private EmployeeService employeeService;
-	
-	@GetMapping
+
+	@GetMapping(path = "/all")
 	@PreAuthorize("hasAuthority('ADMIN') || hasAuthority('NORMAL') ")
-	public ResponseEntity<List<Employee>> getEmployees(){
-		return ResponseEntity.ok(employeeService.getEmployees()); 
+	public ResponseEntity<List<Employee>> getEmployees() {
+		return ResponseEntity.ok(employeeService.getEmployees());
 	}
-	
+
 	@PostMapping("/addEmployee")
-	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee){
+	public ResponseEntity<Employee> addEmployee(@RequestBody Employee employee) {
 		employeeService.addEmployee(employee);
 		return ResponseEntity.ok(employee);
 	}
-	
-	@GetMapping("/{id}")
-	public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") int id){
+
+	@GetMapping("/single/{id}")
+	public ResponseEntity<Employee> getEmployeeById(@PathVariable("id") int id) {
 		return ResponseEntity.ok(employeeService.getEmployeeById(id));
 	}
-	
+
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/{id}/activate")
-	public ResponseEntity<String> activateEmployee(@PathVariable("id") int id){
+	public ResponseEntity<String> activateEmployee(@PathVariable("id") int id) {
 		return ResponseEntity.ok(employeeService.activateEmployee(id));
 	}
 
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/{id}/deactivate")
-	public ResponseEntity<String> deactivateEmployee(@PathVariable("id") int id){
+	public ResponseEntity<String> deactivateEmployee(@PathVariable("id") int id) {
 		return ResponseEntity.ok(employeeService.deactivateEmployee(id));
 	}
 
+	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping("/{id}/delete")
-	public ResponseEntity<String> deleteEmployee(@PathVariable("id") int id){
+	public ResponseEntity<String> deleteEmployee(@PathVariable("id") int id) {
 		return ResponseEntity.ok(employeeService.deleteEmployee(id));
 	}
 }

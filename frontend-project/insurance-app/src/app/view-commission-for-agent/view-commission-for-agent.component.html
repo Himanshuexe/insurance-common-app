@@ -1,0 +1,38 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Insurance A/C No.</th>
+                        <th>Agent</th>
+                        <th>Date</th>
+                        <th>Customer Name</th>
+                        <th>Insurance Scheme</th>
+                        <th>Commission Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="insuranceNum"></td>
+                        <td [(ngModel)]="Agent"></td>
+                        <td [(ngModel)]="Date"></td>
+                        <td [(ngModel)]="customerName"></td>
+                        <td [(ngModel)]="insuranceSchame"></td>
+                        <td [(ngModel)]="commissionAmt"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td>Total: </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>
+

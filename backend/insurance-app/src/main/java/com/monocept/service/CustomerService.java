@@ -21,6 +21,9 @@ public class CustomerService {
 	@Autowired
 	CustomerRepository customerRepository;
 
+	@Autowired
+	EmailSender emailSender;
+
 	public CustomerService() {
 
 	}
@@ -39,7 +42,15 @@ public class CustomerService {
 	}
 
 	public Customer addCustomer(Customer customer) {
-		return customerRepository.addCustomer(customer);
+		Customer customerGet = customerRepository.addCustomer(customer);
+		try {
+			emailSender.sendEmail(customer.getEmail(), "Account created successfully",
+					"Greetings,<br>We are excited to welcome you to our company. Your login id is " + customerGet.getId()
+							+ ". You can click here to log in: <a href="+"http://localhost:4200/customer-login"+">login</a> . Incase of any assitance or queries call 1800 400 300");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return customerGet;
 	}
 
 	public SendFeedBackDto addFeedBack(int customerId, SendFeedBackDto feedback) {
@@ -71,7 +82,9 @@ public class CustomerService {
 	}
 
 	public List<CustomerTransactionDto> getSingleCustomerTransaction(int customerId) {
-		return customerRepository.getSingleCustomerTransaction(customerId).stream()
-				.map(c -> new CustomerTransactionDto(customerId,c.getCustomer().getName(), c.getTime(), c.getDescription(),c.getAmount(),c.getType())).collect(Collectors.toList());
+		return customerRepository
+				.getSingleCustomerTransaction(customerId).stream().map(c -> new CustomerTransactionDto(customerId,
+						c.getCustomer().getName(), c.getTime(), c.getDescription(), c.getAmount(), c.getType()))
+				.collect(Collectors.toList());
 	}
 }

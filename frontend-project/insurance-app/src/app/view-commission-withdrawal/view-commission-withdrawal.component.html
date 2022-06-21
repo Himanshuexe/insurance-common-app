@@ -1,0 +1,33 @@
+<br><br><br>
+<body>
+    <h2 class="text-center">{{title}}</h2>
+    <div class="container">
+        <form>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Request Date</th>
+                        <th>Account number</th>
+                        <th>Particulars</th>
+                        <th>Withdrawn Amount</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td [(ngModel)]="requestDate"></td>
+                        <td [(ngModel)]="accountNo"></td>
+                        <td [(ngModel)]="particulars"></td>
+                        <td [(ngModel)]="withAmt"></td>
+                        <td [(ngModel)]="status"></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>Total Withdrawn Amount: </td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

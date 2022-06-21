@@ -14,6 +14,7 @@ export class CustomerDashboardComponent implements OnInit {
   username: any;
   title: string = "e-Insurance";
   insuranceTypes: any[] = []
+  editUrl = 'editCustomer/' + localStorage.getItem("id")
 
   constructor(private logoutService: LogoutService, private insuranceService: InsuranceService, private router: Router) {
     if (localStorage.getItem("token") == null) {

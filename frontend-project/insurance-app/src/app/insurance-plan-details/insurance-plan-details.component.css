@@ -1,0 +1,11 @@
+.hidden {
+    visibility: hidden;
+}
+
+.show {
+    visibility: visible;
+}
+
+.navbar-nav {
+    margin-left: 26%;
+}

@@ -1,0 +1,260 @@
+<body style="background-color: white;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1434A4;">
+        <a class="navbar-brand" href="#"><strong>{{title}}</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/customer-dashboard"><Strong>Dashboard</Strong><span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/view-insurance-account-detail"><Strong>Insurance
+                            Account</Strong></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><Strong>
+                            Customer Profile</Strong>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/customer-profile">Profile</a>
+                        <a class="dropdown-item" href="#">Documents</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><Strong>
+                            Insurance Plans</Strong>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a ngDropDownItem *ngFor="let insuranceType of insuranceTypes" class="dropdown-item"
+                            href="/insurance-plan/{{insuranceType.id}}">{{insuranceType.name}}</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/customerQueries"><Strong>Queries
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Strong></a>
+                </li>
+                <li *ngIf="isloggedIn" class="nav-item">
+                    <a class="btn btn-danger" (click)="logout()" style="">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <body style="background-color: white;">
+        <div class="container">
+            <div class="text-center"><br>
+                <h1>{{insurancePlan.name}}</h1><br>
+                <img src="assets/{{insurancePlan.id}}.jpg" class="rounded float-center" alt="..." style="width: 300px;">
+                <br>
+                <p>
+                    <br>
+                    {{insurancePlan.description}}
+                </p>
+                <br>
+                <br>
+                <br>
+                <br>
+                <!-- Default form contact -->
+                <h2>Plan Details:</h2>
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td>Policy term-minimum</td>
+                            <td>{{insurancePlan.policyTermMin}}</td>
+                        </tr>
+                        <tr>
+                            <td>Policy term-maximum</td>
+                            <td>{{insurancePlan.policyTermMax}}</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Age</td>
+                            <td>{{insurancePlan.minAge}}</td>
+                        </tr>
+                        <tr>
+                            <td>Maximum Age</td>
+                            <td>{{insurancePlan.maxAge}}</td>
+                        </tr>
+                        <tr>
+                            <td>Minimum Investment Amount</td>
+                            <td>{{insurancePlan.sumAssuredMin}}</td>
+                        </tr>
+                        <tr>
+                            <td>Maxmimum Investment Amount</td>
+                            <td>{{insurancePlan.sumAssuredMax}}</td>
+                        </tr>
+                        <tr>
+                            <td>Profit Ratio</td>
+                            <td>{{insurancePlan.profitRatio}}%</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <form>
+                    <h2>Interest Calculator</h2>
+                    <table class="table table-border">
+                        <tbody>
+                            <tr>
+                                <td scope="col"><strong>No Of Years:</strong></td>
+                                <td scope="col"><input type="number" name="years" class="form-control"
+                                        [(ngModel)]="noOfYear">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Total Investment Amount:</strong></td>
+                                <td scope="col"><input type="number" name="amount" class="form-control"
+                                        [(ngModel)]="amount">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Months:</strong></td>
+                                <td scope="col"><select name="months" class="form-control" [(ngModel)]="months">
+                                        <option value="">Select</option>
+                                        <option value='1 month'>1 Month</option>
+                                        <option value='3 month'>3 Month</option>
+                                        <option value='6 month'>6 Month</option>
+                                        <option value='1 year'>1 Year</option>
+                                    </select></td>
+                            </tr>
+                            <button class="btn btn-danger" type="submit"
+                                (click)="calculateInterest()">Calculate</button>
+                            <br>
+                            <br>
+                            <tr>
+                                <td scope="col"><strong>Installment Amount:</strong></td>
+                                <td scope="col"><input type="text" name="installment amount" class="form-control"
+                                        [(ngModel)]="installAmt" value=installAmt disabled></td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Interest Amount:</strong></td>
+                                <td scope="col"><input type="text" name="interest amount" class="form-control"
+                                        [(ngModel)]="insterestAmt" value=insterestAmt disabled></td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Total Amount:</strong></td>
+                                <td scope="col"><input type="text" name="total amount" class="form-control"
+                                        [(ngModel)]="totalAmt" value=totalAmt disabled></td>
+                            </tr>
+                            <tr>
+                                <td><a class="btn btn-danger" style="color: white;" (click)="submit($event)">Buy Now</a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+        <div [ngClass]="accountDetails">
+            <div>
+                <br><br>
+                <h2 class="text-center">Payment Breakup</h2>
+                <p class="text-center">Kindly confirm before making payment..</p>
+            </div>
+            <div class="container">
+                <form>
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td scope="col"><strong>Insurance Plan :</strong></td>
+                                <td><input type="text" name="inssurance-scheme" class="form-control" max="2004-06-11"
+                                        [(ngModel)]="insurancePlanName" /></td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>No of Years :</strong></td>
+                                <td><input type="text" name="no-Of-Year" class="form-control" value=""
+                                        [(ngModel)]="noOfYear" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Profit Ratio : (in %)</strong></td>
+                                <td><input type="text" class="form-control" name="profite-ratio" value=""
+                                        [(ngModel)]="profitRatio" /></td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Total Investment Amount :</strong></td>
+                                <td><input type="text" class="form-control" name="total-invest-amt" value=""
+                                        [(ngModel)]="amount" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Interest Amount :</strong></td>
+                                <td><input type="text" class="form-control" name="insterest-Amt"
+                                        [(ngModel)]="insterestAmt" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Total Amount :</strong></td>
+                                <td><input type="text" class="form-control" name="total-Amt" [(ngModel)]="totalAmt" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Premium Type :</strong></td>
+                                <td><input type="text" class="form-control" name="premium-type" value=""
+                                        [(ngModel)]="months" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Installment Amount :</strong></td>
+                                <td><input type="text" class="form-control" name="install-Amt"
+                                        [(ngModel)]="installAmt" />
+                                </td>
+                            </tr>
+                            <!-- <tr>
+              <td scope="col"><strong>Date Created:</strong></td>
+              <td><input type="text" class="form-control" name="dateCreated" /></td>
+            </tr>
+            <tr>
+              <td scope="col"><strong>Maturity Date:</strong></td>
+              <td><input type="text" class="form-control" name="maturity-date" /></td>
+            </tr> -->
+                            <tr>
+                                <td scope="col"><strong>Payment Type:</strong></td>
+                                <td><select name="payment_type" class="form-control">
+                                        <option value="">Select payment type</option>
+                                        <option value='credit-card'>Credit Card</option>
+                                        <option value='debit-card'>Debit Card</option>
+                                        <option value='visa'>VISA</option>
+                                        <option value='master-card'>Master Card</option>
+                                    </select></td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Card Holder Name:</strong></td>
+                                <td><input type="text" class="form-control" name="crdhldrName" value=""
+                                        [(ngModel)]="cardHolderName" /></td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Card Number:</strong></td>
+                                <td><input type="email" class="form-control" name="email" [(ngModel)]="cardNumber" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>CVV Number:</strong></td>
+                                <td><input type="password" class="form-control" name="email" [(ngModel)]="cvvNumber" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td scope="col"><strong>Expire Date:</strong></td>
+                                <td><input type="date" class="form-control" name="email" [(ngModel)]="expDate" /></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div align="center">
+                                        <!-- <a routerLink="/policy-payment" class="btn btn-danger">Click
+                                            Here to
+                                            Processed</a> -->
+                                        <button class="btn btn-danger" (click)="buyPolicy()">Click here to
+                                            proceed</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </body>

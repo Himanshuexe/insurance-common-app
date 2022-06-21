@@ -7,19 +7,31 @@ import org.springframework.stereotype.Service;
 
 import com.monocept.model.Agent;
 import com.monocept.model.AgentTransaction;
+import com.monocept.model.Customer;
 import com.monocept.repository.AgentRepository;
 
 @Service
 public class AgentService {
 	@Autowired
 	private AgentRepository repo;
+	
+	@Autowired
+	EmailSender emailSender;
 
 	public AgentService() {
 
 	}
 
-	public void addAgent(Agent agent) {
-		repo.addAgent(agent);
+	public Agent addAgent(Agent agent) {
+		Agent agentGet=repo.addAgent(agent);
+		try {
+			emailSender.sendEmail(agent.getEmail(), "Account created successfully",
+					"Greetings,<br>We are excited to welcome you to our company. Your id is " + agentGet.getId()
+					+ ". You can click here to log in: <a href="+"http://localhost:4200/agent-login"+">login</a> . Incase of any assitance or queries call 1800 400 300");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return agentGet;
 	}
 
 	public List<Agent> getAgents() {
@@ -43,5 +55,8 @@ public class AgentService {
 	}
 	public Agent addAgentTransaction(int agentId, AgentTransaction agentTransaction) {
 		return repo.agentTransaction(agentId, agentTransaction);
+	}
+	public List<AgentTransaction> getSingleAgentTransaction(int agentId){
+		return repo.getSingleAgentTransaction(agentId);
 	}
 }

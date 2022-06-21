@@ -24,9 +24,10 @@ public class AgentRepository {
 	}
 
 	@Transactional
-	public void addAgent(Agent agent) {
+	public Agent addAgent(Agent agent) {
 		agent.setType("agent");
 		em.persist(agent);
+		return agent;
 	}
 
 	public List<Agent> getAgents() {
@@ -70,6 +71,10 @@ public class AgentRepository {
 		agent.addTransaction(agentTransaction);
 		em.merge(agent);
 		return agent;
+	}
+	public List<AgentTransaction> getSingleAgentTransaction(int agentId){
+		return em.createQuery("From AgentTransaction where agent_id= "+agentId+"").getResultList();
+		
 	}
 	
 }

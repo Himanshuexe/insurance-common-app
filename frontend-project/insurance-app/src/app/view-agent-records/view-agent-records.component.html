@@ -1,4 +1,5 @@
 <br><br><br>
+
 <body>
     <h2 class="text-center">{{title}}</h2>
     <div class="container">
@@ -12,7 +13,8 @@
                         <th>Email-id</th>
                         <th>Qualification</th>
                         <th>Status</th>
-                        <th>Action</th>
+                        <!-- <th>Edit</th> -->
+                        <th>Delete</th>
                     </tr>
                 </thead>
                 <tbody *ngFor="let agent of agents">
@@ -22,11 +24,18 @@
                         <td>{{agent.address}}</td>
                         <td>{{agent.email}}</td>
                         <td>{{agent.qualification}}</td>
-                        <td>{{agent.status}}</td>
+                        <td><button name="{{agent.id}}" class="btn btn-primary" value="{{agent.status}}"
+                                (click)="changeStatus($event)">
+                                {{agent.status}}
+                            </button></td>
+                        <!-- <td><a href="editAgent/{{agent.id}}">Edit</a></td> -->
+                        <td><button name="{{agent.id}}" class="btn btn-danger" value="{{agent.isDeleted}}"
+                                (click)="action($event)">
+                                {{agent.isDeleted}}
+                            </button></td>
                     </tr>
                 </tbody>
             </table>
         </form>
     </div>
 </body>
-

@@ -1,5 +1,5 @@
 <body style="background-color: white;">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1434A4">
     <a class="navbar-brand" href="#"><strong>{{title}}</strong></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -9,15 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Account<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="/customer-dashboard"><Strong>Dashboard</Strong><span
+              class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" routerLink="/view-insurance-account-detail">Insurance Account</a>
+          <a class="nav-link" routerLink="/view-insurance-account-detail"><Strong>Insurance Account</Strong></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Customer Profile
+            aria-haspopup="true" aria-expanded="false"><Strong>
+              Customer Profile</Strong>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" routerLink="/customer-profile">Profile</a>
@@ -26,68 +27,88 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">
-            Insurance Plans
+            aria-haspopup="true" aria-expanded="false"><Strong>
+              Insurance Plans</Strong>
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a ngDropDownItem *ngFor="let insuranceType of insuranceTypes" class="dropdown-item"
-              href="/{{insuranceType.name}}">{{insuranceType.name}}</a>
+              href="/insurance-plan/{{insuranceType.id}}">{{insuranceType.name}}</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link " routerLink="/customerQueries">Queries</a>
+          <a class="nav-link " routerLink="/customerQueries"><Strong>Queries
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Strong></a>
         </li>
-        <li class="nav-item">
-          <a class="btn btn-danger" (click)="customerLogout()" style="">Logout</a>
-        </li>
+        <span id="logout">
+          <li class="nav-item">
+            <a class="btn btn-danger" (click)="customerLogout()">Logout</a>
+          </li>
+        </span>
       </ul>
     </div>
   </nav>
 
   <div style="text-align: center;">
     <h1 style="margin-top:20px ; color:black;">Welcome</h1>
-    <h3 style="color: black;">{{username}}</h3>
+    <h3 style="color: black;">{{username}}</h3><br>
 
-    <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
-        <img class="card-img-top" src="assets/profile.jpg" alt="Card image cap">
+    <div class="card">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/customer-profile">
+        <br><svg class="card-img-top" style="height: 40%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <path
+            d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z" />
+        </svg>
+        <!-- <img class="card-img-top" src="assets/profile.jpg" alt="Card image cap"> -->
         <div class="card-body">
           <h5 class="card-title">Profile</h5>
         </div>
       </a>
     </div>
-
-    <div class="card" style="width: 18em; margin: 10px; display: inline-block;">
-      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
-        <img class="card-img-top" src="assets/document.jpg" alt="Card image cap">
+    <div class="card">
+      <a class="card-block stretched-link text-decoration-none" routerLink="">
+        <br><svg class="card-img-top" style="height:40%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <path
+            d="M0 64C0 28.65 28.65 0 64 0H224V128C224 145.7 238.3 160 256 160H384V448C384 483.3 355.3 512 320 512H64C28.65 512 0 483.3 0 448V64zM256 128V0L384 128H256z" />
+        </svg>
+        <!-- <img class="card-img-top" src="assets/document.jpg" alt="Card image cap"> -->
         <div class="card-body">
           <h5 class="card-title">Documents</h5>
         </div>
       </a>
     </div>
 
-
-    <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
-      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
-        <img class="card-img-top" src="assets/insuranceAccount.jpg" alt="Card image cap">
+    <div class="card">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/view-insurance-account-detail">
+        <br><svg class="card-img-top" style="height:40%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M256 0C114.6 0 0 114.6 0 256s114.6 256 256 256s256-114.6 256-256S397.4 0 256 0zM256 128c39.77 0 72 32.24 72 72S295.8 272 256 272c-39.76 0-72-32.24-72-72S216.2 128 256 128zM256 448c-52.93 0-100.9-21.53-135.7-56.29C136.5 349.9 176.5 320 224 320h64c47.54 0 87.54 29.88 103.7 71.71C356.9 426.5 308.9 448 256 448z" />
+        </svg>
+        <!-- <img class="card-img-top" src="assets/insuranceAccount.jpg" alt="Card image cap"> -->
         <div class="card-body">
           <h5 class="card-title">Insurance Account</h5>
         </div>
       </a>
     </div>
-    <br>
-    <div class="card" style="width: 20rem; margin: 20px; display: inline-block;">
-      <a class="card-block stretched-link text-decoration-none" routerLink="/admin-login">
-        <img class="card-img-top" src="assets/queryfeedback.png" alt="Card image cap">
+
+    <div class="card">
+      <a class="card-block stretched-link text-decoration-none" routerLink="/customerQueries">
+        <br><svg class="card-img-top" style="height:40%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+          <path
+            d="M282.5 64H320C355.3 64 384 92.65 384 128V448C384 483.3 355.3 512 320 512H64C28.65 512 0 483.3 0 448V128C0 92.65 28.65 64 64 64H101.5C114.6 26.71 150.2 0 192 0C233.8 0 269.4 26.71 282.5 64zM192 128C209.7 128 224 113.7 224 96C224 78.33 209.7 64 192 64C174.3 64 160 78.33 160 96C160 113.7 174.3 128 192 128zM105.4 230.5C100.9 243 107.5 256.7 119.1 261.2C132.5 265.6 146.2 259.1 150.6 246.6L151.1 245.3C152.2 242.1 155.2 240 158.6 240H216.9C225.2 240 232 246.8 232 255.1C232 260.6 229.1 265.6 224.4 268.3L180.1 293.7C172.6 298 168 305.9 168 314.5V328C168 341.3 178.7 352 192 352C205.1 352 215.8 341.5 215.1 328.4L248.3 309.9C267.9 298.7 280 277.8 280 255.1C280 220.3 251.7 192 216.9 192H158.6C134.9 192 113.8 206.9 105.8 229.3L105.4 230.5zM192 384C174.3 384 160 398.3 160 416C160 433.7 174.3 448 192 448C209.7 448 224 433.7 224 416C224 398.3 209.7 384 192 384z" />
+        </svg>
+        <!-- <img class="card-img-top" src="assets/queryfeedback.png" alt="Card image cap"> -->
         <div class="card-body">
-          <h5 class="card-title">Queries & Feedback</h5>
+          <h5 class="card-title">Queries</h5>
         </div>
       </a>
     </div>
-
-    <div class="card" style="width: 20rem; margin: 20px; display: inline-block;">
+    <div class="card">
       <a class="card-block stretched-link text-decoration-none" routerLink="/customer-feedback">
-        <img class="card-img-top" src="assets/feedback.jpg" alt="Card image cap">
+        <br><svg class="card-img-top" style="height:40%;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path
+            d="M511.1 63.1v287.1c0 35.25-28.75 63.1-64 63.1h-144l-124.9 93.68c-7.875 5.75-19.12 .0497-19.12-9.7v-83.98h-96c-35.25 0-64-28.75-64-63.1V63.1c0-35.25 28.75-63.1 64-63.1h384C483.2 0 511.1 28.75 511.1 63.1z" />
+        </svg>
+        <!-- <img class="card-img-top" src="assets/feedback.jpg" alt="Card image cap"> -->
         <div class="card-body">
           <h5 class="card-title">Feedback</h5>
         </div>
@@ -95,5 +116,7 @@
     </div>
 
   </div>
+  <router-outlet></router-outlet>
   <br><br><br><br><br><br><br><br><br>
 </body>
+<app-footer></app-footer>

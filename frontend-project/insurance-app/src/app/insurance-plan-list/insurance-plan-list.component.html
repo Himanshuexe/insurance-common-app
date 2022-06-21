@@ -1,0 +1,77 @@
+<body style="background-color: white;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1434A4;">
+        <a class="navbar-brand" href="#"><strong>{{title}}</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/customer-dashboard"><Strong>Dashboard</Strong><span
+                            class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/view-insurance-account-detail"><Strong>Insurance
+                            Account</Strong></a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><Strong>
+                            Customer Profile</Strong>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" routerLink="/customer-profile">Profile</a>
+                        <a class="dropdown-item" href="#">Documents</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><Strong>
+                            Insurance Plans</Strong>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a ngDropDownItem *ngFor="let insuranceType of insuranceTypes" class="dropdown-item"
+                            href="/insurance-plan/{{insuranceType.id}}">{{insuranceType.name}}</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link " routerLink="/customerQueries"><Strong>Queries
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Strong></a>
+                </li>
+                <li *ngIf="isloggedIn" class="nav-item">
+                    <a class="btn btn-danger" (click)="logout()" style="">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div style="text-align: center;">
+        <h1 style="margin-top:20px ; color:black;">{{planType}}</h1>
+        <!-- <h3 style="color: black;">{{username}}</h3> -->
+        <div *ngFor="let insurancePlan of insurancePlans">
+
+            <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+                <a class="card-block stretched-link text-decoration-none"
+                    href="insurance-plan-details/{{insurancePlan.id}}">
+                    <div class="card-body">
+                        <h5 class="card-title">
+                            <p class="card-text">{{insurancePlan.name}}</p>
+                        </h5>
+                    </div>
+                </a>
+            </div>
+
+            <!-- <div class="card" style="width: 18rem; margin: 10px; display: inline-block;">
+                <a class="card-block stretched-link text-decoration-none"
+                    href="insurance-plan-details/{{insurancePlan.id}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{insurancePlan.name}}</h5>
+                    </div>
+                </a>
+            </div> -->
+        </div>
+    </div>
+    <br><br><br><br><br><br><br><br><br>
+</body>

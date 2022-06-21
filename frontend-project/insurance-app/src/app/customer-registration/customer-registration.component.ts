@@ -13,6 +13,7 @@ export class CustomerRegistrationComponent implements OnInit {
   id: any;
   title: string = "CUSTOMER REGISTRATION";
   constructor(private service: CustomerService, private route: Router) {
+    document.body.style.backgroundColor = '#1434A4'
   }
 
   exform: any;

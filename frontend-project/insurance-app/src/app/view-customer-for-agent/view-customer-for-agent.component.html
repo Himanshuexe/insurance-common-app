@@ -27,7 +27,9 @@
                         <td>{{customer.number}}</td>
                         <td>{{customer.nominee}}</td>
                         <td>{{customer.nomineeRelation}}</td>
-                        <td>{{customer.status}}</td>
+                        <td><button name="{{customer.id}}" class="btn btn-primary" value="{{customer.status}}" (click)="changeStatus($event)">
+                            {{customer.status}}
+                        </button></td>
                         <td><a href="viewCustomerDocument">View Documents</a></td>
                     </tr>
                 </tbody>

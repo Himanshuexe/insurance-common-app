@@ -1,16 +1,16 @@
-<body style="background-image: url('assets/home.jpg');">
-    <nav class="navbar navbar-expand-lg navbar-light bg-primary" style="color: white;">
-        <a class="navbar-brand" href="#"><strong></strong></a>
+<body style="background-color: white;">
+    <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1434A4">
+        <a class="navbar-brand" href="#"><strong>e-insurance</strong></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" routerLink="/agent-dashboard">Dashboard</a>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/admin-dashboard"><Strong>Dashboard</Strong><span
+                            class="sr-only">(current)</span></a>
                 </li>
-
                 <li class="nav-item dropdown" ngbDropdown>
                     <a class="nav-link dropdown-toggle" id="navbarScrollingDropdown" role="button"
                         data-bs-toggle="dropdown" aria-expanded="false" ngbDropdownToggle>
@@ -115,7 +115,7 @@
                         <li ngbDropdownItem><a class="dropdown-item" routerLink="/empRecords">View Employee</a></li>
                     </ul>
                 </li>
-
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <li class="nav-item">
                     <a class="btn btn-danger" (click)="logout()" style="">Logout</a>
                 </li>
@@ -130,18 +130,20 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/agent.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Agent</h5>
-                <p>No of records - {{agentRecords}}</p>
-                <a routerLink="/viewAgents" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewAgents">
+                    <h5 class="card-title">Agent</h5>
+                    <p>No of records - {{agentRecords}}</p>
+                </a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/employee.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Employee</h5>
-                <p>No of records - {{employeeRecords}}</p>
-                <a routerLink="/empRecords" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/empRecords">
+                    <h5 class="card-title">Employee</h5>
+                    <p>No of records - {{employeeRecords}}</p>
+                </a>
             </div>
         </div>
 
@@ -149,9 +151,10 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/customer.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Customer</h5>
-                <p>No of records - {{customerRecords}}</p>
-                <a routerLink="/viewCustomer" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewCustomer">
+                    <h5 class="card-title">Customer</h5>
+                    <p>No of records - {{customerRecords}}</p>
+                </a>
             </div>
         </div>
 
@@ -160,9 +163,10 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/customerdoc.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Customer Doc</h5>
-                <p>No of records - {{customerDocRecords}}</p>
-                <a routerLink="#" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="#">
+                    <h5 class="card-title">Customer Doc</h5>
+                    <p>No of records - {{customerDocRecords}}</p>
+                </a>
             </div>
         </div>
 
@@ -170,9 +174,10 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/insuranceType.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Insurance Type</h5>
-                <p>No of records - {{insuranceTypeRecords}}</p>
-                <a routerLink="/insuranceType" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/insuranceType">
+                    <h5 class="card-title">Insurance Type</h5>
+                    <p>No of records - {{insuranceTypeRecords}}</p>
+                </a>
             </div>
         </div>
 
@@ -180,9 +185,10 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/insurancePlan.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Insurance Plan</h5>
-                <p>No of records - {{insurancePlanRecords}}</p>
-                <a routerLink="/viewInsurancePlan" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewInsurancePlan">
+                    <h5 class="card-title">Insurance Plan</h5>
+                    <p>No of records - {{insurancePlanRecords}}</p>
+                </a>
             </div>
         </div>
         <br>
@@ -190,10 +196,10 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/insuranceAccount.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Insurance Account</h5>
-                <p>No of records - {{insuranceAccountRecords}}</p>
-                <a routerLink="/view-insurance-account-detail" class="fa fa-eye"
-                    style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/view-insurance-account-detail">
+                    <h5 class="card-title">Insurance Account</h5>
+                    <p>No of records - {{insuranceAccountRecords}}</p>
+                </a>
             </div>
         </div>
 
@@ -201,9 +207,10 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/policyPayment.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Policy Payment</h5>
-                <p>No of records - {{policyPaymentRecords}}</p>
-                <a routerLink="/viewPolicyPay" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewPolicyPay">
+                    <h5 class="card-title">Policy Payment</h5>
+                    <p>No of records - {{policyPaymentRecords}}</p>
+                </a>
             </div>
         </div>
 
@@ -212,57 +219,63 @@
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/policyClaim.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Policy Claim</h5>
-                <p>No of records - {{policyClaimRecords}}</p>
-                <a routerLink="/viewPolicyClaim" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewPolicyClaim">
+                    <h5 class="card-title">Policy Claim</h5>
+                    <p>No of records - {{policyClaimRecords}}</p>
+                </a>
             </div>
         </div>
         <br>
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/viewCommission.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Commisssion</h5>
-                <p>No of records - {{commissionRecords}}</p>
-                <a routerLink="/viewCommission" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewCommission">
+                    <h5 class="card-title">Commisssion</h5>
+                    <p>No of records - {{commissionRecords}}</p>
+                </a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/query.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Query</h5>
-                <p>No of records - {{queryRecords}}</p>
-                <a routerLink="/viewQueries" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewQueries">
+                    <h5 class="card-title">Query</h5>
+                    <p>No of records - {{queryRecords}}</p>
+                </a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/state.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">State</h5>
-                <p>No of records - {{stateRecords}}</p>
-                <a routerLink="/viewState" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewState">
+                    <h5 class="card-title">State</h5>
+                    <p>No of records - {{stateRecords}}</p>
+                </a>
             </div>
         </div>
         <br>
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/city.png" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">City</h5>
-                <p>No of records - {{cityRecords}}</p>
-                <a routerLink="/viewCity" class="fa fa-eye" style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewCity">
+                    <h5 class="card-title">City</h5>
+                    <p>No of records - {{cityRecords}}</p>
+                </a>
             </div>
         </div>
 
         <div class="card" style="width: 18rem; margin:10px; display: inline-block;">
             <img class="card-img-top" src="assets/insuranceScheme.jpg" alt="Card image cap">
             <div class="card-body">
-                <h5 class="card-title">Insurance Scheme</h5>
-                <p>No of records - {{insuranceSchemeRecords}}</p>
-                <a routerLink="/viewInsuranceScheme" class="fa fa-eye"
-                    style="color:red; text-decoration: none;">View</a>
+                <a routerLink="/viewInsuranceScheme">
+                    <h5 class="card-title">Insurance Scheme</h5>
+                    <p>No of records - {{insuranceSchemeRecords}}</p>
+                </a>
             </div>
         </div>
+        <br><br><br><br><br>
     </div>
-    <br><br><br><br><br>
 </body>
+<app-footer></app-footer>

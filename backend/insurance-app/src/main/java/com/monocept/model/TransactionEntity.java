@@ -17,8 +17,17 @@ public class TransactionEntity {
 	private String description;
 	private double amount;
 	private String type;
+	
 
 	public TransactionEntity() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public TransactionEntity(String type, double amount, String description) {
+		this.type=type;
+		this.amount=amount;
+		this.description=description;
 	}
 
 	public TransactionEntity(Timestamp time, String description, double amount, String type) {

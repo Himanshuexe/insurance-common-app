@@ -1,45 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from '../services/services/login.service';
 
 
 
 @Component({
   selector: 'agent-login',
   templateUrl: './agent-login.component.html',
-  styleUrls: ['./agent-login.component.css']
+  styleUrls: ['./agent-login.component.css'],
+  providers: [LoginService]
 })
 export class AgentLoginComponent implements OnInit {
-credentials={
-  username:'',
-  password:''
-}
-  constructor() { }
+  credentials = {
+    username: '',
+    password: ''
+  }
+  token: any
+  constructor(private loginService: LoginService, private route: Router) {
+    document.body.style.backgroundColor = '#1434A4'
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit(){
-    // if((this.credentials.username!='' && this.credentials.password!='') && 
-    // (this.credentials.username!=null && this.credentials.password!=null)){
-    //   this.loginService.generateToken(this.credentials).
-    //   subscribe((response:any)=>{
-    //    console.log(response.token);
-    //    this.loginService.loginUser(response.token);
-    //    window.location.href="/";
-
-    //   },
-    //   error=>{
-    //   console.log(error);
-    //   alert("**Wrong Credentials Entered")
-    //   })
-    // }else{
-    //   alert("**Please Fill both Username and Password");
-    // }
-    if(this.credentials.username.match("rohan") && this.credentials.password.match("pass")){
-      window.location.href="/agent-dashboard"
-      // this. router. navigate(['/customer-dashboard']); 
-    }else{
-      alert("wrong credentials");
-    }
+  getUserFormData(data: any) {
+    // console.log('user data ' + data);
+    this.loginService.loginUser(data).subscribe(user => {
+      this.token = user
+      console.log(this.token.token)
+      console.log(data.id)
+      localStorage.setItem("token", this.token.token);
+      localStorage.setItem("userId", data.id);
+      localStorage.setItem("username", data.name)
+      this.route.navigate(['/agent-dashboard'])
+      document.body.style.backgroundColor = 'white'
+    })
   }
 }

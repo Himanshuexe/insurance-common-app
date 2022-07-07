@@ -46,7 +46,7 @@ public class CustomerService {
 		try {
 			emailSender.sendEmail(customer.getEmail(), "Account created successfully",
 					"Greetings,<br>We are excited to welcome you to our company. Your login id is " + customerGet.getId()
-							+ ". You can click here to log in: <a href="+"http://localhost:4200/customer-login"+">login</a> . Incase of any assitance or queries call 1800 400 300");
+							+ ".");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { InsuranceService } from '../services/services/insurance.service';
 
 @Component({
@@ -22,9 +21,9 @@ export class InsuranceAccountDetailsComponent implements OnInit {
 
   title: string = "Insurance Account details";
   constructor(private insuranceService: InsuranceService, private activatedRoute: ActivatedRoute) {
-    this.activatedRoute.params.subscribe(params => {
-      console.log(params['id'])
-      this.insuranceService.getInsurancePlanById(params['id']).subscribe(data =>
+    this.activatedRoute.params.subscribe((param: { [x: string]: number; }) => {
+      console.log(param['id'])
+      this.insuranceService.getInsurancePlanById(param['id']).subscribe(data =>
         this.insurancePlanName = data.name)
     })
     this.insurancePlan = insuranceService.getData()

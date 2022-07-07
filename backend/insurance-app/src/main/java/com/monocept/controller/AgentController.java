@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,6 +24,7 @@ public class AgentController {
 	@Autowired
 	private AgentService agentService;
 
+//	@PreAuthorize("hasAuthority('ADMIN') || hasAuthority('NORMAl')")
 	@GetMapping(path = "/all")
 	public ResponseEntity<List<Agent>> getAgents() {
 		return ResponseEntity.ok(agentService.getAgents());

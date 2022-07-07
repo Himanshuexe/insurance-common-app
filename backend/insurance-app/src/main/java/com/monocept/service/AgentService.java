@@ -27,7 +27,7 @@ public class AgentService {
 		try {
 			emailSender.sendEmail(agent.getEmail(), "Account created successfully",
 					"Greetings,<br>We are excited to welcome you to our company. Your id is " + agentGet.getId()
-					+ ". You can click here to log in: <a href="+"http://localhost:4200/agent-login"+">login</a> . Incase of any assitance or queries call 1800 400 300");
+					+ ".");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

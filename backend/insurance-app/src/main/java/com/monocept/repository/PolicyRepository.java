@@ -32,6 +32,10 @@ public class PolicyRepository {
 		return (Policy) em.createQuery("FROM Policy WHERE id = "+id+" ").getSingleResult();
 	}
 	
+	public List<Policy> getPoliciesByCustomerId(int id) {
+		return (List<Policy>) em.createQuery("FROM Policy WHERE customer_id = "+id+" ").getResultList();
+	}
+	
 	@Transactional
 	public String activatePolicy(int id) {
 		Policy policy = getPolicyById(id);

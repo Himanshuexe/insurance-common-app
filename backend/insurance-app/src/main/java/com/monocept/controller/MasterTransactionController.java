@@ -24,7 +24,7 @@ public class MasterTransactionController {
 	public ResponseEntity<String> addTransaction(@RequestBody MasterTransaction transaction) {
 		return ResponseEntity.ok(masterTransactionService.addTransaction(transaction));
 	}
-	@PreAuthorize("hasAuthority('ADMIN')")
+//	@PreAuthorize("hasAuthority('ADMIN')")
 	@GetMapping(path  ="/allTransaction")
 	public ResponseEntity<List<MasterTransaction>> getAllTransaction(){
 		return ResponseEntity.ok(masterTransactionService.getAllMasterTransaction());

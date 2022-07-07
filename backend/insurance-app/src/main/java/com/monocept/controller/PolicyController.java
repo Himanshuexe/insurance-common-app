@@ -42,6 +42,11 @@ public class PolicyController {
 	private AgentService agentService;
 	@Autowired
 	private MasterTransactionService masterService;
+	
+	@GetMapping("/getPolicies/{id}")
+	public ResponseEntity<List<Policy>> getPoliciesById(@PathVariable int id){
+		return ResponseEntity.ok(policyService.getPoliciesByCustomerId(id));
+	}
 
 	@PostMapping("/addPolicy")
 	public ResponseEntity<SendPolicyDto> addPolicy(@RequestBody SendPolicyDto sendPolicy) {

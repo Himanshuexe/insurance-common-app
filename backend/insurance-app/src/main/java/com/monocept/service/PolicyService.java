@@ -19,7 +19,9 @@ public class PolicyService {
 		repo.addPolicy(policy);
 	}
 	
-
+public List<Policy> getPoliciesByCustomerId(int id){
+	return repo.getPoliciesByCustomerId(id);
+}
 	
 	public String activatePolicy(int id) {
 		return repo.activatePolicy(id);

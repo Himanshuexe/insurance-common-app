@@ -1,0 +1,116 @@
+<body style="background-color: skyblue;">
+    <div class="text-center">
+        <h1>AR-Saral-Jheevan-Plan</h1>
+        <img src="https://st2.depositphotos.com/1037987/5987/i/450/depositphotos_59876915-stock-photo-happy-family-in-garden.jpg"
+            class="rounded float-center" alt="...">
+        <p>
+            An Individual, Non-Linked, Non-Participating Life Insurance Pure Risk Premium Product.
+            <br>
+            A solution that offers you and your family, the independence to stay financially protected, even in
+            unforeseen circumstances.
+            <br>
+            AR Life- Saral Jeevan Bima offers ease of understanding with standard terms and conditions.
+            <br>
+        </p>
+        <h3>Key Features:</h3>
+        <p>
+            <li>
+                Security for your family with a standard term plan at an affordable cost
+            </li>
+            <li>
+                Convenience of premium payment options**
+            </li>
+            <li>
+                Tax benefits* as per prevailing norms under the Income Tax Act, 1961.
+            </li>
+
+
+            **Once, regularly or for a limited (5/10 years) period
+            <br>
+            <br>
+            <br>
+            <li>
+                Documents Required:
+                AadharCard, Voter-Id,Health-Certificate
+            </li>
+        </p>
+        <br>
+        <br>
+        <br>
+        <br>
+        <!-- Default form contact -->
+        <h2>Plan Details:</h2>
+        <table class="table table-hover">
+            <tbody>
+                <tr>
+                    <td>Policy term-minimum</td>
+                    <td>2 Years</td>
+                </tr>
+                <tr>
+                    <td>Policy term-maximum</td>
+                    <td>8 Years</td>
+                </tr>
+                <tr>
+                    <td>Minimum Age</td>
+                    <td>25</td>
+                </tr>
+                <tr>
+                    <td>Maximum Age</td>
+                    <td>60</td>
+                </tr>
+                <tr>
+                    <td>Minimum Investment Amount</td>
+                    <td>110000</td>
+                </tr>
+                <tr>
+                    <td>Maxmimum Investment Amount</td>
+                    <td>150000</td>
+                </tr>
+                <tr>
+                    <td>Profit Ratio</td>
+                    <td>6.00%</td>
+                </tr>
+            </tbody>
+        </table>
+        <form>
+            <h2>Interest Calculator</h2>
+            <table class="table table-border">
+                <tbody>
+                    <tr>
+                        <td scope="col"><strong>No Of Years:</strong></td>
+                        <td scope="col"><input type="number" name="years" class="form-control" [(ngModel)]="noOfYear"></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Total Investment Amount:</strong></td>
+                        <td scope="col"><input type="number" name="amount" class="form-control" [(ngModel)]="amount"></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Months:</strong></td>
+                        <td scope="col"><select name="months" class="form-control" [(ngModel)]="months">
+                            <option value="">Select</option>
+                            <option value='1 month'>1 Month</option>
+                            <option value='3 month'>3 Month</option>
+                            <option value='6 month'>6 Month</option>
+                            <option value='1 year'>1 Year</option>
+                          </select></td>
+                    </tr>
+                    <button class="btn btn-danger" type="submit" (click)="interestCalculator()">Calculate</button>
+                    <br>
+                    <br>
+                    <tr>
+                        <td scope="col"><strong>Installment Amount:</strong></td>
+                        <td scope="col"><input type="text" name="installment amount" class="form-control" [(ngModel)]="installAmt" value=installAmt></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Interest Amount:</strong></td>
+                        <td scope="col"><input type="text" name="interest amount" class="form-control" [(ngModel)]="insterestAmt" value=insterestAmt></td>
+                    </tr>
+                    <tr>
+                        <td scope="col"><strong>Total Amount:</strong></td>
+                        <td scope="col"><input type="text" name="total amount" class="form-control" [(ngModel)]="totalAmt" value=totalAmt></td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</body>

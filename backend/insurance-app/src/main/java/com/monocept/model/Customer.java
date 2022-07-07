@@ -8,6 +8,8 @@ import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Customer extends com.monocept.model.Entity implements UserDetail{
 
@@ -23,12 +25,15 @@ public class Customer extends com.monocept.model.Entity implements UserDetail{
 	private String nominee;
 	private String nomineeRelation;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<Policy> policies;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<Feedback> feedbacks;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
 	private List<CustomerTransaction> transactions;
 	

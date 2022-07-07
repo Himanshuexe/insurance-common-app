@@ -9,6 +9,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Policy extends com.monocept.model.Entity {
 	
@@ -19,13 +21,16 @@ public class Policy extends com.monocept.model.Entity {
 	private double profitRatio;
 	private double sumAssured;
 	
+	@JsonIgnore
 	@OneToOne
 	@JoinColumn
 	private InsurancePlan insurancePlan;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Agent agent;
 	
+	@JsonIgnore
 	@ManyToOne
 	@JoinColumn
 	private Customer customer;
